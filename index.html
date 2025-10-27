@@ -5,49 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>روتيني - تطبيق الروتين اليومي</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <div id="app">
-        
-        <div id="sky-bar">
-            <div class="cloud"></div>
-            <div class="cloud"></div>
-            <div class="star"></div>
-            <div class="star"></div>
-        </div>
+    <!-- المساحة 1: شريط السماء المتحرك - ضعي الأنميشن هنا -->
+    <div id="sky-bar">
+        <!-- ضعي عناصر الأنميشن هنا (غيوم، نجوم، إلخ) -->
+    </div>
 
-        
-        <header>
+    <div class="container">
+        <!-- الهيدر -->
+        <header class="app-header">
             <h1>✨ روتيني</h1>
-            <div id="user-stars">نجومك: <span id="star-count">0</span> ⭐</div>
+            <div class="user-stars">
+                <span>نجومك:</span>
+                <span class="star-count">0 ⭐</span>
+            </div>
         </header>
 
-        <!-- قسم القوالب حسب الوقت -->
-        <section id="time-based-templates">
-            <h2 id="current-time-template">قالب الوقت الحالي</h2>
-            <div id="template-container">
-                
+        <!-- القسم الزمني -->
+        <section class="time-section">
+            <h2 class="time-title" id="time-title">🌅 روتين الصباح</h2>
+            <div class="time-info">
+                <p>⏰ من 6 صباحاً إلى 12 ظهراً</p>
             </div>
         </section>
 
-        
-        <section id="voting-section">
+        <!-- نجمة الأسبوع -->
+        <section class="weekly-star">
             <h3>✨ نجمة الأسبوع</h3>
-            <div id="vote-candidates">
-                
+            <div class="candidate-card">
+                <div class="candidate-header">
+                    <h4>مستخدم</h4>
+                    <span class="candidate-stars">⭐</span>
+                </div>
+                <p class="candidate-content">روتيني الصباحي يشمل تمارين yoga وشرب كوب من الماء الدافئ...</p>
+                <div class="vote-info">
+                    <span>الأصوات: <span id="vote-count">0</span></span>
+                    <!-- المساحة 2: زر التصويت - ضعي event listener هنا -->
+                    <button class="vote-btn" id="vote-btn">التصويت ✨</button>
+                </div>
             </div>
         </section>
 
-        
-        <section id="post-section">
-            <textarea id="post-content" placeholder="شاركي روتينك اليومي..."></textarea>
-            <input type="file" id="media-upload" accept="image/*,video/*">
-            <button id="publish-btn">نشر ✨</button>
+        <!-- قسم النشر -->
+        <section class="post-section">
+            <h3>شاركي روتينك اليومي</h3>
+            <div class="post-card">
+                <!-- المساحة 3: حقل النص -->
+                <textarea class="post-input" id="post-input" placeholder="اكتبي روتينك اليومي هنا... 🌸"></textarea>
+                
+                <div class="upload-section">
+                    <!-- المساحة 4: رفع الملف -->
+                    <label for="media-upload" class="upload-btn" id="upload-btn">
+                        📁 اختيار صورة أو فيديو
+                    </label>
+                    <input type="file" id="media-upload" accept="image/*,video/*" hidden>
+                    <span class="file-name" id="file-name">لم يتم اختيار ملف</span>
+                </div>
+
+                <!-- المساحة 5: زر النشر -->
+                <button class="publish-btn" id="publish-btn">نشر التحديث ✨</button>
+            </div>
         </section>
     </div>
 
-    <script src="js/theme-manager.js"></script>
-    <script src="js/vote-system.js"></script>
-    <script src="js/app.js"></script>
+    <!-- المساحة 6: ضعي event listeners هنا -->
+    <script src="js/my-events.js"></script>
+    
+    <!-- المساحة 7: ضعي الأنيميشن هنا -->
+    <script src="js/my-animations.js"></script>
 </body>
 </html>
