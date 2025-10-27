@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.5s ease;
+    color: #333;
+}
+
+/* شريط السماء */
+#sky-bar {
+    height: 100px;
+    background: linear-gradient(90deg, #87CEEB, #98FB98);
+    position: relative;
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: moveCloud 20s linear infinite;
+}
+
+.cloud:nth-child(1) { top: 20px; animation-duration: 25s; }
+.cloud:nth-child(2) { top: 50px; animation-duration: 30s; }
+
+.star {
+    position: absolute;
+    background: yellow;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes moveCloud {
+    from { transform: translateX(-100px); }
+    to { transform: translateX(100vw); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* الثيمات حسب الوقت */
+.theme-morning {
+    background: linear-gradient(135deg, #87CEEB, #98FB98);
+}
+
+.theme-evening {
+    background: linear-gradient(135deg, #FF7E5F, #FEB47B);
+}
+
+.theme-night {
+    background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);
+}
+
+/* القوالب */
+.template {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.template.morning {
+    border: 2px solid #87CEEB;
+}
+
+.template.evening {
+    border: 2px solid #FF7E5F;
+}
+
+.template.night {
+    border: 2px solid #4A00E0;
+}
+
+/* الأزهار والألوان الكيوت */
+.cute-button {
+    background: linear-gradient(45deg, #FF9A9E, #FAD0C4);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.cute-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                          }
