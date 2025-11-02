@@ -1,44 +1,165 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="ar" dir="rtl">
 <head>
-    <title>Logo Design - روتينيات</title>
+    <meta charset="UTF-8">
+    <title>تصاميم لوجو روتينيات</title>
     <style>
-        body { 
+        body {
             background: linear-gradient(135deg, #fdf2f8, #faf5ff);
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
             text-align: center;
-            padding: 50px;
         }
         .logo-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
         }
         .logo-option {
             background: white;
-            padding: 30px;
+            padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .logo-option:hover {
+            transform: translateY(-5px);
+        }
+        .logo-preview {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body>
-    <h2>اختر تصميم اللوجو المفضل</h2>
+    <h1 style="color: #4c1d95;">اختر تصميم اللوجو المفضل</h1>
+    <p style="color: #6b7280;">تصاميم أنثوية جميلة ومخصصة لتطبيق روتينيات</p>
+    
     <div class="logo-container">
+        <!-- اللوجو 1: وردة متطورة -->
         <div class="logo-option">
-            <div style="font-size: 48px; color: #ec4899;">🌺 روتينيات</div>
-            <p>اللوجو 1: وردة + اسم</p>
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- وردة -->
+                    <path d="M60,20 C70,10 85,15 90,25 C95,35 85,45 80,50 C75,55 65,60 60,65 C55,60 45,55 40,50 C35,45 25,35 30,25 C35,15 50,10 60,20 Z" 
+                          fill="url(#grad1)" opacity="0.9"/>
+                    <path d="M60,25 C67,18 78,22 82,28 C87,34 78,42 74,46 C70,50 62,54 60,57 C58,54 50,50 46,46 C42,42 33,34 38,28 C43,22 53,18 60,25 Z" 
+                          fill="white" opacity="0.8"/>
+                    <!-- أوراق -->
+                    <path d="M45,75 C35,70 30,80 35,85 C40,90 50,85 55,80" fill="#10b981" opacity="0.8"/>
+                    <path d="M75,75 C85,70 90,80 85,85 C80,90 70,85 65,80" fill="#10b981" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p style="color: #6b7280; margin-top: 0.5rem;">لوجو الوردة المتطورة</p>
         </div>
+
+        <!-- اللوجو 2: فراشة أنيقة -->
         <div class="logo-option">
-            <div style="font-size: 48px; color: #8b5cf6;">🦋 روتينيات</div>
-            <p>اللوجو 2: فراشة + اسم</p>
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <defs>
+                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- فراشة -->
+                    <path d="M60,40 C45,30 30,45 35,60 C40,75 55,80 60,75 C65,80 80,75 85,60 C90,45 75,30 60,40 Z" 
+                          fill="url(#grad2)" opacity="0.9"/>
+                    <path d="M45,65 C40,70 35,75 40,80 C45,85 50,80 55,75" fill="url(#grad2)" opacity="0.7"/>
+                    <path d="M75,65 C80,70 85,75 80,80 C75,85 70,80 65,75" fill="url(#grad2)" opacity="0.7"/>
+                    <!-- جسم الفراشة -->
+                    <ellipse cx="60" cy="60" rx="3" ry="15" fill="#7e22ce"/>
+                    <!-- تفاصيل -->
+                    <circle cx="50" cy="45" r="2" fill="white"/>
+                    <circle cx="70" cy="45" r="2" fill="white"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p style="color: #6b7280; margin-top: 0.5rem;">لوجو الفراشة الأنيقة</p>
         </div>
+
+        <!-- اللوجو 3: نجمة وزهرة -->
         <div class="logo-option">
-            <div style="font-size: 48px; color: #f59e0b;">✨ روتينيات</div>
-            <p>اللوجو 3: نجمة + اسم</p>
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- نجمة خلفية -->
+                    <path d="M60,20 L65,40 L85,40 L70,50 L75,70 L60,60 L45,70 L50,50 L35,40 L55,40 Z" 
+                          fill="url(#grad3)" opacity="0.3" filter="url(#glow)"/>
+                    <!-- زهرة -->
+                    <circle cx="60" cy="60" r="25" fill="white" opacity="0.9"/>
+                    <circle cx="60" cy="60" r="20" fill="url(#grad3)" opacity="0.8"/>
+                    <circle cx="60" cy="60" r="8" fill="white"/>
+                    <!-- بتلات -->
+                    <circle cx="45" cy="60" r="7" fill="white" opacity="0.8"/>
+                    <circle cx="75" cy="60" r="7" fill="white" opacity="0.8"/>
+                    <circle cx="60" cy="45" r="7" fill="white" opacity="0.8"/>
+                    <circle cx="60" cy="75" r="7" fill="white" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p style="color: #6b7280; margin-top: 0.5rem;">لوجو النجمة والزهرة</p>
+        </div>
+
+        <!-- اللوجو 4: قلب وورود -->
+        <div class="logo-option">
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120">
+                    <defs>
+                        <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#d946ef;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- قلب -->
+                    <path d="M60,30 C45,15 25,25 30,45 C35,65 60,80 60,80 C60,80 85,65 90,45 C95,25 75,15 60,30 Z" 
+                          fill="url(#grad4)" opacity="0.9"/>
+                    <!-- ورود صغيرة -->
+                    <circle cx="40" cy="35" r="8" fill="white" opacity="0.7"/>
+                    <circle cx="80" cy="35" r="8" fill="white" opacity="0.7"/>
+                    <circle cx="50" cy="25" r="6" fill="white" opacity="0.6"/>
+                    <circle cx="70" cy="25" r="6" fill="white" opacity="0.6"/>
+                    <!-- لمسة لامعة -->
+                    <circle cx="50" cy="40" r="3" fill="white" opacity="0.8"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p style="color: #6b7280; margin-top: 0.5rem;">لوجو القلب والورود</p>
         </div>
     </div>
 </body>
