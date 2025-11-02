@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #f8fafc;
 }
 
 .container {
@@ -62,170 +62,265 @@ body {
     background: rgba(139, 92, 246, 0.1);
 }
 
-/* قسم الهيرو */
+/* الهيرو */
 .hero {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 245, 0.8));
-    min-height: 80vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 80px;
     padding: 4rem 2rem;
+    color: white;
 }
 
 .hero-content h2 {
     font-size: 3rem;
-    color: #4c1d95;
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .hero-content p {
     font-size: 1.3rem;
-    color: #666;
     margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
-.hero-buttons {
+.btn-primary {
+    background: white;
+    color: #8b5cf6;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* الفلاتر */
+.filters {
+    padding: 2rem 0;
+    background: white;
+}
+
+.filter-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.btn {
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.btn-morning {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-}
-
-.btn-evening {
-    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-    color: white;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* قسم المعاينة */
-.preview {
-    padding: 5rem 2rem;
-    background: rgba(255, 255, 255, 0.95);
-}
-
-.preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.preview-card {
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #e2e8f0;
     background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.preview-card:hover {
-    transform: translateY(-10px);
-}
-
-.morning-preview {
-    background: linear-gradient(135deg, #fff7ed, #fed7aa);
-    border-left: 5px solid #f59e0b;
-}
-
-.evening-preview {
-    background: linear-gradient(135deg, #faf5ff, #e9d5ff);
-    border-left: 5px solid #8b5cf6;
-}
-
-.preview-header h3 {
-    font-size: 1.5rem;
-    color: #4c1d95;
-    margin-bottom: 0.5rem;
-}
-
-.preview-header p {
-    color: #666;
-    margin-bottom: 1.5rem;
-}
-
-.preview-content {
-    margin: 1.5rem 0;
-}
-
-.preview-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.preview-item:last-child {
-    border-bottom: none;
-}
-
-.preview-item span {
-    font-size: 1.5rem;
-}
-
-.preview-item p {
-    color: #555;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
     font-weight: 500;
 }
 
-.preview-btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: rgba(139, 92, 246, 0.1);
-    color: #8b5cf6;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+.filter-btn.active,
+.filter-btn:hover {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
 }
 
-.preview-btn:hover {
+/* قسم المشاركات */
+.posts-section {
+    padding: 3rem 0;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-top: 5px solid;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card.morning {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, #fff7ed, #fed7aa);
+}
+
+.post-card.evening {
+    border-color: #8b5cf6;
+    background: linear-gradient(135deg, #faf5ff, #e9d5ff);
+}
+
+.post-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-theme {
+    padding: 0.3rem 1rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.post-theme.morning {
+    background: #f59e0b;
+    color: white;
+}
+
+.post-theme.evening {
     background: #8b5cf6;
     color: white;
 }
 
-/* الفوتر */
-.footer {
-    background: #1f2937;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
+.post-title {
+    font-size: 1.3rem;
+    color: #4c1d95;
+    margin-bottom: 1rem;
 }
 
-/* التجاوب مع الشاشات الصغيرة */
+.post-content {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.like-btn:hover {
+    transform: scale(1.2);
+}
+
+/* نموذج المشاركة */
+.post-form-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.post-form h3 {
+    color: #8b5cf6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.post-form input,
+.post-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.post-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.theme-selection {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.theme-option {
+    display: block;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.theme-option.morning-option:hover,
+input[type="radio"]:checked + .morning-option {
+    border-color: #f59e0b;
+    background: #fff7ed;
+}
+
+.theme-option.evening-option:hover,
+input[type="radio"]:checked + .evening-option {
+    border-color: #8b5cf6;
+    background: #faf5ff;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.form-buttons button[type="submit"] {
+    background: #8b5cf6;
+    color: white;
+}
+
+/* التجاوب */
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav-links {
         gap: 1rem;
     }
     
@@ -233,17 +328,11 @@ body {
         font-size: 2rem;
     }
     
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .preview-grid {
+    .posts-grid {
         grid-template-columns: 1fr;
     }
-}
+    
+    .theme-selection {
+        flex-direction: column;
+    }
+        }
