@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>روتينيات - روتينك اليومي الأنثوي</title>
+    <title>روتينيات - شاركي روتينك اليومي</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,83 +15,71 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="morning.html">🌞 الروتين الصباحي</a></li>
-                <li><a href="evening.html">🌙 الروتين المسائي</a></li>
+                <li><a href="morning.html">🌞 الصباحي</a></li>
+                <li><a href="evening.html">🌙 المسائي</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- قسم الهيرو -->
+    <!-- الهيرو -->
     <section class="hero">
         <div class="hero-content">
-            <h2>اكتشفي أفضل روتين يناسب طبيعة يومك</h2>
-            <p>منصة متخصصة للروتينات اليومية بنسقين صباحي ومسائي</p>
-            <div class="hero-buttons">
-                <a href="morning.html" class="btn btn-morning">ابدأي روتينك الصباحي</a>
-                <a href="evening.html" class="btn btn-evening">ابدأي روتينك المسائي</a>
+            <h2>شاركي روتينك اليومي مع المجتمع</h2>
+            <p>منصة متكاملة لمشاركة الروتينات الصباحية والمسائية</p>
+            <button class="btn btn-primary" onclick="showPostForm()">
+                + ابدئي بمشاركة روتينك
+            </button>
+        </div>
+    </section>
+
+    <!-- فلاتر -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterPosts('all')">كل المشاركات</button>
+                <button class="filter-btn" onclick="filterPosts('morning')">🌞 صباحي</button>
+                <button class="filter-btn" onclick="filterPosts('evening')">🌙 مسائي</button>
             </div>
         </div>
     </section>
 
-    <!-- قسم المعاينة -->
-    <section class="preview">
+    <!-- قسم المشاركات -->
+    <section class="posts-section">
         <div class="container">
-            <div class="preview-grid">
-                <!-- معاينة الصباح -->
-                <div class="preview-card morning-preview">
-                    <div class="preview-header">
-                        <h3>🌞 الروتين الصباحي</h3>
-                        <p>ابدأي يومك بنشاط وحيوية</p>
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-item">
-                            <span>☀️</span>
-                            <p>تمارين الاستيقاظ</p>
-                        </div>
-                        <div class="preview-item">
-                            <span>💆‍♀️</span>
-                            <p>العناية بالبشرة</p>
-                        </div>
-                        <div class="preview-item">
-                            <span>📝</span>
-                            <p>تخطيط اليوم</p>
-                        </div>
-                    </div>
-                    <a href="morning.html" class="preview-btn">استكشفي المزيد</a>
-                </div>
-
-                <!-- معاينة المساء -->
-                <div class="preview-card evening-preview">
-                    <div class="preview-header">
-                        <h3>🌙 الروتين المسائي</h3>
-                        <p>انهي يومك براحة واسترخاء</p>
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-item">
-                            <span>🛁</span>
-                            <p>طقوس الاسترخاء</p>
-                        </div>
-                        <div class="preview-item">
-                            <span>📖</span>
-                            <p>قراءة مسائية</p>
-                        </div>
-                        <div class="preview-item">
-                            <span>💤</span>
-                            <p>تحضير للنوم</p>
-                        </div>
-                    </div>
-                    <a href="evening.html" class="preview-btn">استكشفي المزيد</a>
-                </div>
+            <div class="posts-grid" id="postsGrid">
+                <!-- المشاركات تظهر هنا -->
             </div>
         </div>
     </section>
 
-    <!-- الفوتر -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 روتينيات - جميع الحقوق محفوظة</p>
+    <!-- نموذج إضافة مشاركة -->
+    <div class="post-form-overlay" id="postFormOverlay">
+        <div class="post-form">
+            <h3>🌺 شاركي روتينك</h3>
+            <form id="addPostForm">
+                <input type="text" id="postTitle" placeholder="عنوان روتينك..." required>
+                <textarea id="postContent" placeholder="صف روتينك بالتفصيل..." required></textarea>
+                <div class="theme-selection">
+                    <label>
+                        <input type="radio" name="theme" value="morning" required>
+                        <span class="theme-option morning-option">
+                            🌞 روتين صباحي
+                        </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="theme" value="evening" required>
+                        <span class="theme-option evening-option">
+                            🌙 روتين مسائي
+                        </span>
+                    </label>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" onclick="hidePostForm()">إلغاء</button>
+                    <button type="submit">نشر المشاركة</button>
+                </div>
+            </form>
         </div>
-    </footer>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
