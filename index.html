@@ -3,77 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>روتيني - تطبيق الروتين اليومي</title>
+    <title>روتينيات - روتينك اليومي الأنثوي</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-    <!-- المساحة 1: شريط السماء المتحرك - ضعي الأنميشن هنا -->
-    <div id="sky-bar">
-        <!-- ضعي عناصر الأنميشن هنا (غيوم، نجوم، إلخ) -->
-    </div>
-
-    <div class="container">
-        <!-- الهيدر -->
-        <header class="app-header">
-            <h1>✨ روتيني</h1>
-            <div class="user-stars">
-                <span>نجومك:</span>
-                <span class="star-count">0 ⭐</span>
+    <!-- الهيدر -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <h1>🌺 روتينيات</h1>
             </div>
-        </header>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="morning.html">🌞 الروتين الصباحي</a></li>
+                <li><a href="evening.html">🌙 الروتين المسائي</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- القسم الزمني -->
-        <section class="time-section">
-            <h2 class="time-title" id="time-title">🌅 روتين الصباح</h2>
-            <div class="time-info">
-                <p>⏰ من 6 صباحاً إلى 12 ظهراً</p>
+    <!-- قسم الهيرو -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>اكتشفي أفضل روتين يناسب طبيعة يومك</h2>
+            <p>منصة متخصصة للروتينات اليومية بنسقين صباحي ومسائي</p>
+            <div class="hero-buttons">
+                <a href="morning.html" class="btn btn-morning">ابدأي روتينك الصباحي</a>
+                <a href="evening.html" class="btn btn-evening">ابدأي روتينك المسائي</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- نجمة الأسبوع -->
-        <section class="weekly-star">
-            <h3>✨ نجمة الأسبوع</h3>
-            <div class="candidate-card">
-                <div class="candidate-header">
-                    <h4>مستخدم</h4>
-                    <span class="candidate-stars">⭐</span>
-                </div>
-                <p class="candidate-content">روتيني الصباحي يشمل تمارين yoga وشرب كوب من الماء الدافئ...</p>
-                <div class="vote-info">
-                    <span>الأصوات: <span id="vote-count">0</span></span>
-                    <!-- المساحة 2: زر التصويت - ضعي event listener هنا -->
-                    <button class="vote-btn" id="vote-btn">التصويت ✨</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- قسم النشر -->
-        <section class="post-section">
-            <h3>شاركي روتينك اليومي</h3>
-            <div class="post-card">
-                <!-- المساحة 3: حقل النص -->
-                <textarea class="post-input" id="post-input" placeholder="اكتبي روتينك اليومي هنا... 🌸"></textarea>
-                
-                <div class="upload-section">
-                    <!-- المساحة 4: رفع الملف -->
-                    <label for="media-upload" class="upload-btn" id="upload-btn">
-                        📁 اختيار صورة أو فيديو
-                    </label>
-                    <input type="file" id="media-upload" accept="image/*,video/*" hidden>
-                    <span class="file-name" id="file-name">لم يتم اختيار ملف</span>
+    <!-- قسم المعاينة -->
+    <section class="preview">
+        <div class="container">
+            <div class="preview-grid">
+                <!-- معاينة الصباح -->
+                <div class="preview-card morning-preview">
+                    <div class="preview-header">
+                        <h3>🌞 الروتين الصباحي</h3>
+                        <p>ابدأي يومك بنشاط وحيوية</p>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-item">
+                            <span>☀️</span>
+                            <p>تمارين الاستيقاظ</p>
+                        </div>
+                        <div class="preview-item">
+                            <span>💆‍♀️</span>
+                            <p>العناية بالبشرة</p>
+                        </div>
+                        <div class="preview-item">
+                            <span>📝</span>
+                            <p>تخطيط اليوم</p>
+                        </div>
+                    </div>
+                    <a href="morning.html" class="preview-btn">استكشفي المزيد</a>
                 </div>
 
-                <!-- المساحة 5: زر النشر -->
-                <button class="publish-btn" id="publish-btn">نشر التحديث ✨</button>
+                <!-- معاينة المساء -->
+                <div class="preview-card evening-preview">
+                    <div class="preview-header">
+                        <h3>🌙 الروتين المسائي</h3>
+                        <p>انهي يومك براحة واسترخاء</p>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-item">
+                            <span>🛁</span>
+                            <p>طقوس الاسترخاء</p>
+                        </div>
+                        <div class="preview-item">
+                            <span>📖</span>
+                            <p>قراءة مسائية</p>
+                        </div>
+                        <div class="preview-item">
+                            <span>💤</span>
+                            <p>تحضير للنوم</p>
+                        </div>
+                    </div>
+                    <a href="evening.html" class="preview-btn">استكشفي المزيد</a>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- المساحة 6: ضعي event listeners هنا -->
-    <script src="js/my-events.js"></script>
-    
-    <!-- المساحة 7: ضعي الأنيميشن هنا -->
-    <script src="js/my-animations.js"></script>
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 روتينيات - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
