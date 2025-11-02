@@ -1,0 +1,121 @@
+// نظام إدارة المشاركات
+let posts = JSON.parse(localStorage.getItem('routinyat-posts')) || [];
+let currentFilter = 'all';
+
+// عرض المشاركات
+function displayPosts() {
+    const postsGrid = document.getElementById('postsGrid');
+    const filteredPosts = currentFilter === 'all' 
+        ? posts 
+        : posts.filter(post => post.theme === currentFilter);
+
+    if (filteredPosts.length === 0) {
+        postsGrid.innerHTML = `
+            <div class="no-posts">
+                <h3>لا توجد مشاركات بعد</h3>
+                <p>كوني أول من يشارك روتينها اليومي!</p>
+            </div>
+        `;
+        return;
+    }
+
+    postsGrid.innerHTML = filteredPosts.map(post => `
+        <div class="post-card ${post.theme}">
+            <div class="post-header">
+                <span class="post-theme ${post.theme}">
+                    ${post.theme === 'morning' ? '🌞 صباحي' : '🌙 مسائي'}
+                </span>
+                <span class="post-date">${post.date}</span>
+            </div>
+            <h3 class="post-title">${post.title}</h3>
+            <p class="post-content">${post.content}</p>
+            <div class="post-meta">
+                <button class="like-btn" onclick="likePost(${post.id})">
+                    ❤️ ${post.likes}
+                </button>
+                <span>بواسطة: ${post.author || 'مستخدم'}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+// تصفية المشاركات
+function filterPosts(filter) {
+    currentFilter = filter;
+    
+    // تحديث أزرار الفلتر
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    displayPosts();
+}
+
+// إظهار نموذج المشاركة
+function showPostForm() {
+    document.getElementById('postFormOverlay').style.display = 'flex';
+}
+
+// إخفاء نموذج المشاركة
+function hidePostForm() {
+    document.getElementById('postFormOverlay').style.display = 'none';
+    document.getElementById('addPostForm').reset();
+}
+
+// إضافة مشاركة جديدة
+document.getElementById('addPostForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const title = document.getElementById('postTitle').value;
+    const content = document.getElementById('postContent').value;
+    const theme = document.querySelector('input[name="theme"]:checked').value;
+    
+    const newPost = {
+        id: Date.now(),
+        title,
+        content,
+        theme,
+        likes: 0,
+        author: 'مستخدمة',
+        date: new Date().toLocaleDateString('ar-AR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        })
+    };
+    
+    posts.unshift(newPost);
+    savePosts();
+    displayPosts();
+    hidePostForm();
+    
+    alert('🎉 تم نشر روتينك بنجاح!');
+});
+
+// الإعجاب بالمشاركة
+function likePost(postId) {
+    const post = posts.find(p => p.id === postId);
+    if (post) {
+        post.likes++;
+        savePosts();
+        displayPosts();
+    }
+}
+
+// حفظ المشاركات في localStorage
+function savePosts() {
+    localStorage.setItem('routinyat-posts', JSON.stringify(posts));
+}
+
+// التهيئة الأولية
+document.addEventListener('DOMContentLoaded', function() {
+    displayPosts();
+    
+    // إغلاق النموذج عند النقر خارجيه
+    document.getElementById('postFormOverlay').addEventListener('click', function(e) {
+        if (e.target === this) {
+            hidePostForm();
+        }
+    });
+});
