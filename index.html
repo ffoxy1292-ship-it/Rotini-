@@ -3,79 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>روتينيات - شاركي روتينك اليومي</title>
+    <title>روتينيات - مجتمع الروتين اليومي للنساء</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- الهيدر -->
-    <header class="header">
+    <!-- الهيدر الأنثوي -->
+    <header class="feminine-header">
         <nav class="nav">
             <div class="logo">
-                <h1>🌺 روتينيات</h1>
+                <div class="logo-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h1>روتينيات</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">الرئيسية</a></li>
-                <li><a href="morning.html">🌞 الصباحي</a></li>
-                <li><a href="evening.html">🌙 المسائي</a></li>
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="morning.html" class="nav-link"><i class="fas fa-sun"></i> الصباحي</a></li>
+                <li><a href="evening.html" class="nav-link"><i class="fas fa-moon"></i> المسائي</a></li>
+                <li><a href="community.html" class="nav-link"><i class="fas fa-users"></i> المجتمع</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="btn-post" onclick="showPostForm()">
+                    <i class="fas fa-plus"></i>
+                    مشاركة جديدة
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- الهيرو -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>شاركي روتينك اليومي مع المجتمع</h2>
-            <p>منصة متكاملة لمشاركة الروتينات الصباحية والمسائية</p>
-            <button class="btn btn-primary" onclick="showPostForm()">
-                + ابدئي بمشاركة روتينك
-            </button>
+    <!-- الهيرو الرئيسي -->
+    <section class="main-hero">
+        <div class="hero-background">
+            <div class="floating-elements">
+                <div class="floating-icon" style="top: 20%; left: 10%;"><i class="fas fa-heart"></i></div>
+                <div class="floating-icon" style="top: 60%; left: 85%;"><i class="fas fa-star"></i></div>
+                <div class="floating-icon" style="top: 80%; left: 15%;"><i class="fas fa-feather"></i></div>
+            </div>
         </div>
-    </section>
-
-    <!-- فلاتر -->
-    <section class="filters">
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterPosts('all')">كل المشاركات</button>
-                <button class="filter-btn" onclick="filterPosts('morning')">🌞 صباحي</button>
-                <button class="filter-btn" onclick="filterPosts('evening')">🌙 مسائي</button>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-gradient">روتينيات</span>
+                <br>مجتمعك اليومي للعناية والجمال
+            </h1>
+            <p class="hero-subtitle">شاركي روتينك اليومي، استوحي من الآخرات، وابني عادات جميلة</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">1,247+</span>
+                    <span class="stat-label">مشاركة</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">563+</span>
+                    <span class="stat-label">عضوة</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">89+</span>
+                    <span class="stat-label">روتين</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <i class="fas fa-spa"></i>
             </div>
         </div>
     </section>
 
-    <!-- قسم المشاركات -->
-    <section class="posts-section">
+    <!-- قسم المشاركات الحديثة -->
+    <section class="recent-posts">
         <div class="container">
+            <div class="section-header">
+                <h2>أحدث المشاركات من المجتمع</h2>
+                <p>استوحي من روتينيات الأخريات</p>
+            </div>
             <div class="posts-grid" id="postsGrid">
                 <!-- المشاركات تظهر هنا -->
             </div>
+            <div class="section-footer">
+                <a href="community.html" class="see-all-btn">
+                    مشاهدة كل المشاركات <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- نموذج إضافة مشاركة -->
-    <div class="post-form-overlay" id="postFormOverlay">
-        <div class="post-form">
-            <h3>🌺 شاركي روتينك</h3>
-            <form id="addPostForm">
-                <input type="text" id="postTitle" placeholder="عنوان روتينك..." required>
-                <textarea id="postContent" placeholder="صف روتينك بالتفصيل..." required></textarea>
-                <div class="theme-selection">
-                    <label>
-                        <input type="radio" name="theme" value="morning" required>
-                        <span class="theme-option morning-option">
-                            🌞 روتين صباحي
-                        </span>
-                    </label>
-                    <label>
-                        <input type="radio" name="theme" value="evening" required>
-                        <span class="theme-option evening-option">
-                            🌙 روتين مسائي
-                        </span>
-                    </label>
+    <!-- الأقسام الرئيسية -->
+    <section class="main-sections">
+        <div class="container">
+            <div class="sections-grid">
+                <a href="morning.html" class="section-card morning-section">
+                    <div class="section-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>الروتين الصباحي</h3>
+                    <p>ابدأي يومك بنشاط وطاقة مع روتين صباحي متكامل</p>
+                    <div class="section-stats">
+                        <span><i class="fas fa-file-alt"></i> 324 مشاركة</span>
+                    </div>
+                    <div class="section-cta">
+                        <span>استكشفي الروتين <i class="fas fa-arrow-left"></i></span>
+                    </div>
+                </a>
+
+                <a href="evening.html" class="section-card evening-section">
+                    <div class="section-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3>الروتين المسائي</h3>
+                    <p>انهي يومك براحة واسترخاء مع طقوس مسائية هادئة</p>
+                    <div class="section-stats">
+                        <span><i class="fas fa-file-alt"></i> 287 مشاركة</span>
+                    </div>
+                    <div class="section-cta">
+                        <span>استكشفي الروتين <i class="fas fa-arrow-left"></i></span>
+                    </div>
+                </a>
+
+                <a href="community.html" class="section-card community-section">
+                    <div class="section-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>مجتمع روتينيات</h3>
+                    <p>تفاعلي مع المجتمع واستوحي من تجارب الأخريات</p>
+                    <div class="section-stats">
+                        <span><i class="fas fa-user-friends"></i> 563 عضوة</span>
+                    </div>
+                    <div class="section-cta">
+                        <span>انضمي للمجتمع <i class="fas fa-arrow-left"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج المشاركة -->
+    <div class="post-modal" id="postModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> مشاركة روتين جديد</h3>
+                <button class="close-modal" onclick="hidePostForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="postForm" class="post-form">
+                <div class="form-group">
+                    <label>عنوان الروتين</label>
+                    <input type="text" id="postTitle" placeholder="مثال: روتين العناية بالبشرة الصباحي..." required>
                 </div>
-                <div class="form-buttons">
-                    <button type="button" onclick="hidePostForm()">إلغاء</button>
-                    <button type="submit">نشر المشاركة</button>
+                <div class="form-group">
+                    <label>وصف الروتين</label>
+                    <textarea id="postContent" placeholder="شاركي تفاصيل روتينك..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>نوع الروتين</label>
+                    <div class="theme-selection">
+                        <label class="theme-option morning-option">
+                            <input type="radio" name="theme" value="morning" required>
+                            <div class="option-content">
+                                <i class="fas fa-sun"></i>
+                                <span>روتين صباحي</span>
+                            </div>
+                        </label>
+                        <label class="theme-option evening-option">
+                            <input type="radio" name="theme" value="evening" required>
+                            <div class="option-content">
+                                <i class="fas fa-moon"></i>
+                                <span>روتين مسائي</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="hidePostForm()">إلغاء</button>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        نشر المشاركة
+                    </button>
                 </div>
             </form>
         </div>
@@ -83,4 +186,4 @@
 
     <script src="js/script.js"></script>
 </body>
-</html>
+                                </html>
