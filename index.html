@@ -2,191 +2,166 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>شعارات تطبيق - روتينيات</title>
+    <title>شعارات بسيطة - روتينيات</title>
     <style>
         body {
-            background: linear-gradient(135deg, #fdf2f8, #faf5ff);
+            background: #f8fafc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 3rem 2rem;
+            padding: 2rem;
             text-align: center;
         }
         
         .logo-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 3rem auto;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
         }
         
         .logo-option {
             background: white;
-            padding: 3rem 2rem;
-            border-radius: 25px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
         
         .logo-option:hover {
-            transform: translateY(-10px);
-            border-color: #ec4899;
-            box-shadow: 0 30px 70px rgba(236, 72, 153, 0.2);
+            transform: scale(1.05);
         }
         
         .logo-preview {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
         }
         
         .logo-name {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 1.5rem 0 0.5rem;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4c1d95;
+            margin-bottom: 0.5rem;
         }
         
         .logo-desc {
             color: #6b7280;
             font-size: 0.9rem;
-            line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <h1 style="color: #4c1d95; margin-bottom: 1rem;">شعارات توحي بأنه تطبيق تواصل اجتماعي</h1>
-    <p style="color: #6b7280; margin-bottom: 3rem;">تصاميم تعبر عن منصة لمشاركة المحتوى والتفاعل الاجتماعي</p>
+    <h1 style="color: #4c1d95; margin-bottom: 1rem;">شعارات بسيطة وواضحة</h1>
+    <p style="color: #6b7280; margin-bottom: 2rem;">تصاميم يسهل فهمها للسيدات وكبار السن</p>
     
     <div class="logo-container">
         
-        <!-- الشعار 1: شبكة تواصل -->
+        <!-- الشعار 1: صورة شخصية بسيطة -->
         <div class="logo-option">
-            <div class="logo-preview">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                    <!-- نقاط اتصال -->
-                    <circle cx="20" cy="20" r="8"/>
-                    <circle cx="60" cy="20" r="8"/>
-                    <circle cx="40" cy="40" r="8"/>
-                    <circle cx="20" cy="60" r="8"/>
-                    <circle cx="60" cy="60" r="8"/>
-                    
-                    <!-- خطوط الاتصال -->
-                    <line x1="20" y1="20" x2="40" y2="40" stroke="white" stroke-width="3"/>
-                    <line x1="60" y1="20" x2="40" y2="40" stroke="white" stroke-width="3"/>
-                    <line x1="20" y1="60" x2="40" y2="40" stroke="white" stroke-width="3"/>
-                    <line x1="60" y1="60" x2="40" y2="40" stroke="white" stroke-width="3"/>
-                    <line x1="20" y1="20" x2="60" y2="60" stroke="white" stroke-width="2" opacity="0.7"/>
+            <div class="logo-preview" style="background: #ec4899;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- رأس -->
+                    <circle cx="30" cy="20" r="12"/>
+                    <!-- جسم -->
+                    <path d="M20,35 Q30,50 40,35" stroke="white" stroke-width="3" fill="none"/>
+                    <!-- يدين -->
+                    <path d="M15,30 Q20,28 22,32" stroke="white" stroke-width="2" fill="none"/>
+                    <path d="M38,32 Q40,28 45,30" stroke="white" stroke-width="2" fill="none"/>
                 </svg>
             </div>
             <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">شبكة تواصل اجتماعي مع نقاط اتصال</p>
+            <p class="logo-desc">شخص يشارك روتينه اليومي</p>
         </div>
 
-        <!-- الشعار 2: مشاركة محتوى -->
+        <!-- الشعار 2: منزل وقلب -->
         <div class="logo-option">
-            <div class="logo-preview">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                    <!-- أيقونة مشاركة -->
-                    <circle cx="40" cy="40" r="30" fill="transparent" stroke="white" stroke-width="3"/>
-                    
-                    <!-- أسهم مشاركة -->
-                    <path d="M25,30 L40,15 L55,30 L45,30 L45,50 L35,50 L35,30 Z" fill="white"/>
-                    <path d="M25,50 L40,65 L55,50 L45,50 L45,30 L35,30 L35,50 Z" fill="white" opacity="0.8"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">أيقونة مشاركة المحتوى والتواصل</p>
-        </div>
-
-        <!-- الشعار 3: مجتمع تفاعلي -->
-        <div class="logo-option">
-            <div class="logo-preview">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                    <!-- مجموعة أشخاص -->
-                    <circle cx="25" cy="35" r="10"/>
-                    <circle cx="55" cy="35" r="10"/>
-                    <circle cx="40" cy="55" r="12"/>
-                    
-                    <!-- تفاعل بينهم -->
-                    <path d="M30,40 Q40,45 50,40" stroke="white" stroke-width="3" fill="none"/>
-                    <circle cx="35" cy="32" r="2" fill="#8b5cf6"/>
-                    <circle cx="45" cy="32" r="2" fill="#8b5cf6"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">مجتمع تفاعلي من الأشخاص المتصلين</p>
-        </div>
-
-        <!-- الشعار 4: منصة محتوى -->
-        <div class="logo-option">
-            <div class="logo-preview">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                    <!-- منصة مع محتوى -->
-                    <rect x="15" y="25" width="50" height="30" rx="5" fill="white" opacity="0.9"/>
-                    
-                    <!-- شرائط محتوى -->
-                    <rect x="20" y="30" width="40" height="4" fill="#8b5cf6"/>
-                    <rect x="20" y="38" width="35" height="4" fill="#ec4899"/>
-                    <rect x="20" y="46" width="30" height="4" fill="#f59e0b"/>
-                    
-                    <!-- قلب تفاعل -->
-                    <path d="M60,15 L65,20 L60,25 L55,20 Z" fill="#ec4899"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">منصة عرض محتوى مع تفاعلات</p>
-        </div>
-
-        <!-- الشعار 5: حديث وتواصل -->
-        <div class="logo-option">
-            <div class="logo-option">
-                <div class="logo-preview">
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                        <!-- فقاعات حديث -->
-                        <circle cx="30" cy="30" r="12"/>
-                        <circle cx="50" cy="40" r="15"/>
-                        
-                        <!-- نقاط حديث -->
-                        <circle cx="25" cy="25" r="2" fill="#8b5cf6"/>
-                        <circle cx="30" cy="28" r="2" fill="#ec4899"/>
-                        <circle cx="45" cy="35" r="2" fill="#f59e0b"/>
-                        <circle cx="50" cy="40" r="2" fill="#8b5cf6"/>
-                        <circle cx="55" cy="45" r="2" fill="#ec4899"/>
-                    </svg>
-                </div>
-                <div class="logo-name">روتينيات</div>
-                <p class="logo-desc">تواصل وحديث بين المستخدمين</p>
-            </div>
-        </div>
-
-        <!-- الشعار 6: إعجابات ومشاركات -->
-        <div class="logo-option">
-            <div class="logo-preview">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="white">
-                    <!-- يد تحمل قلب -->
-                    <path d="M35,25 Q40,15 50,20 Q55,25 52,35 Q50,45 40,50 Q30,45 28,35 Q25,25 35,25 Z" fill="white"/>
-                    
+            <div class="logo-preview" style="background: #8b5cf6;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- منزل -->
+                    <path d="M15,35 L30,20 L45,35 L40,35 L40,45 L20,45 L20,35 Z" fill="white"/>
+                    <!-- سقف -->
+                    <path d="M15,35 L30,15 L45,35" stroke="white" stroke-width="2" fill="none"/>
                     <!-- قلب -->
-                    <path d="M40,30 Q45,25 50,30 Q52,35 50,40 Q45,45 40,48 Q35,45 30,40 Q28,35 30,30 Q35,25 40,30 Z" fill="#ec4899"/>
-                    
-                    <!-- تفاصيل -->
-                    <circle cx="45" cy="33" r="1.5" fill="white"/>
-                    <circle cx="35" cy="33" r="1.5" fill="white"/>
+                    <path d="M30,25 Q35,20 40,25 Q42,30 40,35 Q35,40 30,45 Q25,40 20,35 Q18,30 20,25 Q25,20 30,25 Z" fill="#ec4899"/>
                 </svg>
             </div>
             <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">تفاعل وإعجاب بالمحتوى المشرتك</p>
+            <p class="logo-desc">منزل وعائلة بمشاركة الحب</p>
+        </div>
+
+        <!-- الشعار 3: تقويم وأيام -->
+        <div class="logo-option">
+            <div class="logo-preview" style="background: #f59e0b;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- تقويم -->
+                    <rect x="15" y="20" width="30" height="25" rx="3" fill="white"/>
+                    <!-- رأس التقويم -->
+                    <rect x="15" y="15" width="30" height="8" fill="#8b5cf6"/>
+                    <!-- أيام -->
+                    <circle cx="22" cy="28" r="2" fill="#f59e0b"/>
+                    <circle cx="30" cy="28" r="2" fill="#f59e0b"/>
+                    <circle cx="38" cy="28" r="2" fill="#f59e0b"/>
+                    <circle cx="22" cy="35" r="2" fill="#f59e0b"/>
+                    <circle cx="30" cy="35" r="2" fill="#ec4899"/>
+                    <circle cx="38" cy="35" r="2" fill="#f59e0b"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p class="logo-desc">تقويم يمثل الروتين اليومي</p>
+        </div>
+
+        <!-- الشعار 4: كاميرا بسيطة -->
+        <div class="logo-option">
+            <div class="logo-preview" style="background: #10b981;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- كاميرا -->
+                    <rect x="18" y="20" width="24" height="18" rx="3" fill="white"/>
+                    <circle cx="30" cy="29" r="6" fill="#10b981"/>
+                    <circle cx="30" cy="29" r="3" fill="white"/>
+                    <!-- فلاش -->
+                    <rect x="40" y="18" width="4" height="4" rx="1" fill="#f59e0b"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p class="logo-desc">كاميرا للمشاركة بالصور</p>
+        </div>
+
+        <!-- الشعار 5: يد تشارك -->
+        <div class="logo-option">
+            <div class="logo-preview" style="background: #3b82f6;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- يد -->
+                    <path d="M25,25 Q30,15 40,20 Q45,25 42,35 Q40,45 30,50 Q20,45 18,35 Q15,25 25,25 Z" fill="white"/>
+                    <!-- عناصر مشاركة -->
+                    <circle cx="30" cy="30" r="3" fill="#3b82f6"/>
+                    <circle cx="35" cy="25" r="2" fill="#ec4899"/>
+                    <circle cx="25" cy="35" r="2" fill="#10b981"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p class="logo-desc">يد تشارك وتتفاعل</p>
+        </div>
+
+        <!-- الشعار 6: قلب وتقويم -->
+        <div class="logo-option">
+            <div class="logo-preview" style="background: #ec4899;">
+                <svg width="60" height="60" viewBox="0 0 60 60" fill="white">
+                    <!-- قلب -->
+                    <path d="M30,20 Q35,15 40,20 Q42,25 40,30 Q35,35 30,40 Q25,35 20,30 Q18,25 20,20 Q25,15 30,20 Z" fill="white"/>
+                    <!-- خطوط أيام -->
+                    <line x1="25" y1="25" x2="35" y2="25" stroke="#ec4899" stroke-width="2"/>
+                    <line x1="25" y1="30" x2="35" y2="30" stroke="#ec4899" stroke-width="2"/>
+                    <line x1="25" y1="35" x2="35" y2="35" stroke="#ec4899" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="logo-name">روتينيات</div>
+            <p class="logo-desc">حب ومشاركة يومية</p>
         </div>
 
     </div>
 </body>
-    </html>
+                        </html>
