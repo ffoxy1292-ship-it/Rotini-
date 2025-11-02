@@ -1,7 +1,4 @@
-// نظام إدارة المشاركات
 let posts = JSON.parse(localStorage.getItem('routinyat-posts')) || [];
-
-// عرض المشاركات على الصفحة الرئيسية
 function displayPosts() {
     const postsGrid = document.getElementById('postsGrid');
     const recentPosts = posts.slice(0, 6); // عرض آخر 6 مشاركات فقط
