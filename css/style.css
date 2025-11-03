@@ -37,12 +37,12 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+
 /* اللوجو الجديد - سيدة اليوجا */
 .yoga-logo {
     width: 30px;
     height: 35px;
     position: relative;
-    margin: 0 auto;
 }
 
 .yoga-logo .head {
@@ -100,7 +100,6 @@ body {
     0%, 100% { transform: scale(1); opacity: 0.3; }
     50% { transform: scale(1.1); opacity: 0.6; }
 }
-
 
 .app-logo h1 {
     background: linear-gradient(135deg, #ec4899, #8b5cf6);
