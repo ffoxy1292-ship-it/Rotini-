@@ -2,18 +2,19 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>شعارات جميلة وبسيطة - روتينيات</title>
+    <title>شعارات أنيقة - روتينيات</title>
     <style>
         body {
-            background: linear-gradient(135deg, #fdf2f8, #faf5ff, #fef7ed);
+            background: linear-gradient(135deg, #fdf2f8 0%, #faf5ff 50%, #fef7ed 100%);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 3rem 2rem;
             text-align: center;
+            min-height: 100vh;
         }
         
         .logo-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             max-width: 1200px;
             margin: 3rem auto;
@@ -21,187 +22,199 @@
         
         .logo-option {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             padding: 3rem 2rem;
-            border-radius: 25px;
+            border-radius: 30px;
             box-shadow: 
-                0 20px 40px rgba(0,0,0,0.1),
-                0 8px 20px rgba(236, 72, 153, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.4s ease;
-        }
-        
-        .logo-option:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 30px 60px rgba(0,0,0,0.15),
-                0 15px 30px rgba(236, 72, 153, 0.15);
-        }
-        
-        .logo-preview {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 25px;
+                0 25px 50px rgba(139, 92, 246, 0.15),
+                0 15px 30px rgba(236, 72, 153, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
         
-        .logo-preview::before {
+        .logo-option::before {
             content: '';
             position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6, #f59e0b);
         }
         
-        @keyframes shine {
-            0%, 100% { transform: rotate(45deg) translateX(-100%); }
-            50% { transform: rotate(45deg) translateX(100%); }
+        .logo-option:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 35px 70px rgba(139, 92, 246, 0.25),
+                0 25px 50px rgba(236, 72, 153, 0.2);
+        }
+        
+        .logo-preview {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            position: relative;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            box-shadow: 
+                0 15px 35px rgba(139, 92, 246, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         
         .logo-name {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin: 1.5rem 0 0.5rem;
-            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            margin: 1.5rem 0 0.8rem;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #f59e0b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
         
         .logo-desc {
             color: #6b7280;
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1.2rem;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
         }
     </style>
 </head>
 <body>
-    <h1 style="color: #4c1d95; margin-bottom: 1rem;">شعارات جميلة وبسيطة في نفس الوقت</h1>
-    <p style="color: #6b7280; margin-bottom: 3rem;">تصاميم جذابة وسهلة الفهم للسيدات وكبار السن</p>
+    <h1 style="color: #4c1d95; font-size: 2.8rem; margin-bottom: 1rem; font-weight: 800;">شعارات أنيقة وجذابة</h1>
+    <p style="color: #6b7280; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem; line-height: 1.6;">تصاميم احترافية تناسب تطبيق اجتماعي للسيدات</p>
     
     <div class="logo-container">
         
-        <!-- الشعار 1: وردة أنيقة -->
+        <!-- الشعار 1: وردة فاخرة -->
         <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #ec4899, #db2777);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- وردة بسيطة وأنيقة -->
-                    <circle cx="35" cy="35" r="20" fill="white" opacity="0.9"/>
-                    <circle cx="35" cy="35" r="15" fill="url(#roseGrad)"/>
-                    <!-- بتلات -->
-                    <circle cx="28" cy="28" r="8" fill="white" opacity="0.8"/>
-                    <circle cx="42" cy="28" r="8" fill="white" opacity="0.8"/>
-                    <circle cx="28" cy="42" r="8" fill="white" opacity="0.8"/>
-                    <circle cx="42" cy="42" r="8" fill="white" opacity="0.8"/>
+            <div class="logo-preview">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
                     <defs>
-                        <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#db2777;stop-opacity:1" />
+                        <linearGradient id="luxuryRose" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
+                        </linearGradient>
+                        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#EC4899" flood-opacity="0.3"/>
+                        </filter>
+                    </defs>
+                    
+                    <!-- الوردة الأساسية -->
+                    <path d="M40,20 C45,15 55,18 58,25 C61,32 56,40 52,45 C48,50 42,55 40,60 C38,55 32,50 28,45 C24,40 19,32 22,25 C25,18 35,15 40,20 Z" 
+                          fill="url(#luxuryRose)" filter="url(#shadow)" opacity="0.95"/>
+                    
+                    <!-- قلب الوردة -->
+                    <circle cx="40" cy="40" r="8" fill="#FDF2F8" opacity="0.9"/>
+                    
+                    <!-- لمعان -->
+                    <circle cx="35" cy="30" r="3" fill="white" opacity="0.8"/>
+                    <circle cx="45" cy="35" r="2" fill="white" opacity="0.6"/>
+                </svg>
+            </div>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">وردة فاخرة بتصميم حديث وأنيق</p>
+            <div class="feature-badge">أنثوي وجذاب</div>
+        </div>
+
+        <!-- الشعار 2: فراشة أنيقة -->
+        <div class="logo-option">
+            <div class="logo-preview" style="background: linear-gradient(135deg, #8B5CF6, #6366F1);">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <defs>
+                        <linearGradient id="butterflyWings" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#FAF5FF;stop-opacity:0.8" />
                         </linearGradient>
                     </defs>
+                    
+                    <!-- الأجنحة -->
+                    <path d="M25,35 Q40,20 55,35 Q50,50 40,60 Q30,50 25,35 Z" 
+                          fill="url(#butterflyWings)" opacity="0.95"/>
+                    
+                    <!-- الجسم -->
+                    <ellipse cx="40" cy="45" rx="3" ry="10" fill="#FAF5FF" opacity="0.9"/>
+                    
+                    <!-- الزخارف -->
+                    <circle cx="32" cy="32" r="4" fill="#F59E0B" opacity="0.8"/>
+                    <circle cx="48" cy="32" r="4" fill="#EC4899" opacity="0.8"/>
+                    <circle cx="35" cy="40" r="3" fill="#10B981" opacity="0.7"/>
+                    <circle cx="45" cy="40" r="3" fill="#3B82F6" opacity="0.7"/>
                 </svg>
             </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">وردة أنيقة تعبر عن الجمال اليومي</p>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">فراشة أنيقة بألوان متدرجة</p>
+            <div class="feature-badge">حديث ومتناغم</div>
         </div>
 
-        <!-- الشعار 2: فراشة ملونة -->
+        <!-- الشعار 3: تاج ملكي -->
         <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #8b5cf6, #6366f1);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- فراشة مبسطة -->
-                    <path d="M25,30 Q35,20 45,30 Q40,40 35,45 Q30,40 25,30 Z" fill="white" opacity="0.9"/>
-                    <path d="M25,30 Q35,35 35,45" fill="none" stroke="white" stroke-width="2"/>
-                    <path d="M45,30 Q35,35 35,45" fill="none" stroke="white" stroke-width="2"/>
-                    <!-- نقاط ملونة -->
-                    <circle cx="30" cy="35" r="3" fill="#f59e0b"/>
-                    <circle cx="40" cy="35" r="3" fill="#ec4899"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">فراشة جميلة برسالة تحول وتجدد</p>
-        </div>
-
-        <!-- الشعار 3: قلب متدرج -->
-        <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- قلب بسيط وأنيق -->
-                    <path d="M35,25 Q40,20 45,25 Q47,30 45,35 Q40,40 35,45 Q30,40 25,35 Q23,30 25,25 Q30,20 35,25 Z" 
-                          fill="white" opacity="0.9"/>
-                    <!-- تدرج داخلي -->
-                    <path d="M35,28 Q38,25 42,28 Q43,32 42,35 Q38,38 35,41 Q32,38 28,35 Q27,32 28,28 Q32,25 35,28 Z" 
-                          fill="url(#heartGrad)"/>
+            <div class="logo-preview" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
                     <defs>
-                        <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+                        <linearGradient id="crownGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+                            <stop offset="100%" style="stop-color:#FEF3C7;stop-opacity:0.9" />
                         </linearGradient>
                     </defs>
+                    
+                    <!-- التاج -->
+                    <path d="M25,45 L30,30 L35,35 L40,25 L45,35 L50,30 L55,45 L50,50 L45,55 L35,55 L30,50 Z" 
+                          fill="url(#crownGold)" opacity="0.95"/>
+                    
+                    <!-- الجواهر -->
+                    <circle cx="40" cy="30" r="5" fill="#EC4899" opacity="0.9"/>
+                    <circle cx="32" cy="38" r="4" fill="#8B5CF6" opacity="0.9"/>
+                    <circle cx="48" cy="38" r="4" fill="#8B5CF6" opacity="0.9"/>
+                    <circle cx="28" cy="48" r="3" fill="#10B981" opacity="0.8"/>
+                    <circle cx="52" cy="48" r="3" fill="#10B981" opacity="0.8"/>
                 </svg>
             </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">قلب دافئ يعبر عن المشاركة</p>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">تاج ذهبي مرصع بالجواهر</p>
+            <div class="feature-badge">فاخر وملكي</div>
         </div>
 
-        <!-- الشعار 4: شمس وابتسامة -->
+        <!-- الشعار 4: قلب ناعم -->
         <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- شمس -->
-                    <circle cx="35" cy="35" r="18" fill="white"/>
-                    <!-- أشعة -->
-                    <path d="M35,15 L38,20 L45,18 L40,25 L45,30 L35,28 L30,35 L25,30 L30,25 L25,18 L32,20 Z" fill="#f59e0b"/>
-                    <!-- ابتسامة -->
-                    <path d="M28,38 Q35,42 42,38" stroke="#f59e0b" stroke-width="2" fill="none"/>
+            <div class="logo-preview" style="background: linear-gradient(135deg, #EC4899, #DB2777);">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <defs>
+                        <linearGradient id="softHeart" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- القلب -->
+                    <path d="M40,25 C45,20 55,22 58,30 C60,38 52,48 45,55 C42,58 40,60 40,60 C40,60 38,58 35,55 C28,48 20,38 22,30 C25,22 35,20 40,25 Z" 
+                          fill="url(#softHeart)" opacity="0.95"/>
+                    
+                    <!-- اللمعان -->
+                    <circle cx="45" cy="35" r="6" fill="white" opacity="0.4"/>
+                    <circle cx="35" cy="40" r="4" fill="white" opacity="0.3"/>
                 </svg>
             </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">شمس مشرقة ترمز لبدايات جديدة</p>
-        </div>
-
-        <!-- الشعار 5: كأس دافئ -->
-        <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- كأس -->
-                    <path d="M25,30 L30,25 L40,25 L45,30 L45,40 L25,40 Z" fill="white"/>
-                    <rect x="28" y="40" width="14" height="4" fill="white"/>
-                    <!-- بخار -->
-                    <path d="M32,22 Q34,18 36,22" stroke="white" stroke-width="2" fill="none"/>
-                    <path d="M30,20 Q32,16 34,20" stroke="white" stroke-width="2" fill="none"/>
-                    <path d="M34,18 Q36,14 38,18" stroke="white" stroke-width="2" fill="none"/>
-                    <!-- قلب صغير -->
-                    <path d="M35,32 Q37,30 39,32 Q40,34 39,36 Q37,38 35,40 Q33,38 31,36 Q30,34 31,32 Q33,30 35,32 Z" 
-                          fill="#fbbf24"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">دفء المشاركة الصباحية</p>
-        </div>
-
-        <!-- الشعار 6: نجمة وشرائط -->
-        <div class="logo-option">
-            <div class="logo-preview" style="background: linear-gradient(135deg, #10b981, #059669);">
-                <svg width="70" height="70" viewBox="0 0 70 70" fill="white">
-                    <!-- نجمة -->
-                    <path d="M35,20 L38,30 L48,30 L40,36 L43,46 L35,40 L27,46 L30,36 L22,30 L32,30 Z" fill="white"/>
-                    <!-- شرائط -->
-                    <path d="M25,48 L45,48" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M28,52 L42,52" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M31,56 L39,56" stroke="#ec4899" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="logo-name">روتينيات</div>
-            <p class="logo-desc">نجمة مشرقة مع ألوان متنوعة</p>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">قلب ناعم بتصميم عصري</p>
+            <div class="feature-badge">ناعم وجميل</div>
         </div>
 
     </div>
