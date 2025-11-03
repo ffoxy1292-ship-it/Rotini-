@@ -29,6 +29,22 @@ body {
 }
 
 
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* إضافة هذا الجزء - كان ناقص */
+
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
 /* كود اللوغو الجديد - سيدة اليوجا من التصميم الثاني */
 .logo-icon {
