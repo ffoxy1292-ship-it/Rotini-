@@ -857,3 +857,62 @@ body {
 }
 
 .stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ec4899;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.profile-actions {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .theme-selection {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .leaders-board {
+        grid-template-columns: 1fr;
+    }
+    
+    .competition-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .filter-tabs {
+        flex-wrap: wrap;
+    }
+                           }
