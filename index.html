@@ -9,27 +9,61 @@
 </head>
 <body>
     <!-- الهيدر -->
-<header class="app-header">
-    <nav class="nav">
-        <div class="app-logo">
-            <div class="logo-icon">
-                <!-- اللوجو الجديد - سيدة اليوجا -->
-                <div class="yoga-logo">
-                    <div class="energy"></div>
-                    <div class="head"></div>
-                    <div class="body"></div>
-                    <div class="arms"></div>
-                    <div class="legs"></div>
+    <header class="app-header">
+        <nav class="nav">
+            <div class="app-logo">
+                <div class="logo-icon">
+                    <!-- اللوجو الجديد - سيدة اليوجا -->
+                    <div class="yoga-logo">
+                        <div class="energy"></div>
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="arms"></div>
+                        <div class="legs"></div>
+                    </div>
+                </div>
+                <h1>روتينيات</h1>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="showPostForm()">
+                    <i class="fas fa-plus"></i>
+                    منشور جديد
+                </button>
+                
+                <!-- إذا ما كان مسجل دخول -->
+                <div id="authButtons" class="auth-buttons">
+                    <button class="btn-secondary" onclick="showLoginForm()">
+                        <i class="fas fa-sign-in-alt"></i>
+                        تسجيل الدخول
+                    </button>
+                    <button class="btn-outline" onclick="showRegisterForm()">
+                        <i class="fas fa-user-plus"></i>
+                        إنشاء حساب
+                    </button>
+                </div>
+                
+                <!-- إذا مسجل دخول -->
+                <div id="userProfile" class="user-profile" style="display: none;">
+                    <div class="user-avatar" onclick="toggleUserMenu()">
+                        <img id="userAvatar" src="https://via.placeholder.com/40/ec4899/ffffff?text=?" alt="صورة المستخدم">
+                        <span id="userName">مستخدم</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="user-menu" id="userMenu">
+                        <a href="#" onclick="showProfilePage()"><i class="fas fa-user"></i> الملف الشخصي</a>
+                        <a href="#" onclick="showMyPosts()"><i class="fas fa-list"></i> منشوراتي</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                    </div>
                 </div>
             </div>
-            <h1>روتينات</h1>
-        </div>
-        
-        <div class="nav-actions">
-            <!-- باقي المحتوى -->
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
+
+    <!-- باقي المحتوى يبقى كما هو -->
+    <!-- ... -->
+
+
     <!-- زر الدخول/الملف الشخصي -->
 <div class="nav-actions">
     <button class="btn-primary" onclick="showPostForm()">
