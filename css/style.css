@@ -16,7 +16,6 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 /* الهيدر */
 .app-header {
     background: rgba(255, 255, 255, 0.95);
@@ -38,12 +37,34 @@ body {
     margin: 0 auto;
 }
 
-/* اللوجو الجديد - سيدة اليوجا */
+/* إضافة هذا الجزء - كان ناقص */
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ثم كود اليوجا الذي لديك */
 .yoga-logo {
     width: 30px;
     height: 35px;
     position: relative;
 }
+
+
+
 
 .yoga-logo .head {
     width: 8px;
