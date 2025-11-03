@@ -2,340 +2,170 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>سيدات حقيقيات - روتينيات</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
-        
-        body {
-            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 3rem 2rem;
-            text-align: center;
-            min-height: 100vh;
-        }
-        
-        .logo-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 3rem auto;
-        }
-        
-        .logo-option {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 3rem 2rem;
-            border-radius: 30px;
-            box-shadow: 0 25px 60px rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.5s ease;
-            position: relative;
-        }
-        
-        .logo-preview {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .logo-name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 1.5rem 0 0.8rem;
-            background: linear-gradient(135deg, #ec4899, #db2777, #be185d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Dancing Script', cursive;
-        }
-        
-        .logo-desc {
-            color: #9d174d;
-            font-size: 1rem;
-            line-height: 1.6;
-            font-weight: 500;
-            opacity: 0.8;
-        }
-        
-        .magic-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #ec4899, #db2777);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-        }
-
-        /* حركات النجوم */
-        .floating-element {
-            position: absolute;
-            font-size: 1.2rem;
-            opacity: 0;
-            animation: floatMagic 4s ease-in-out infinite;
-        }
-        
-        @keyframes floatMagic {
-            0% { transform: translate(0, 0) rotate(0deg) scale(0.8); opacity: 0; }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { transform: translate(80px, -80px) rotate(180deg) scale(0.8); opacity: 0; }
-        }
-
-        /* شخصية أنثوية حقيقية */
-        .woman-figure {
-            position: relative;
-            width: 120px;
-            height: 160px;
-        }
-
-        .head {
-            width: 30px;
-            height: 30px;
-            background: #f9a8d4;
-            border-radius: 50%;
-            position: absolute;
-            top: 10px;
-            left: 45px;
-        }
-
-        .body {
-            width: 40px;
-            height: 50px;
-            background: linear-gradient(135deg, #ec4899, #db2777);
-            border-radius: 20px 20px 0 0;
-            position: absolute;
-            top: 40px;
-            left: 40px;
-        }
-
-        .dress {
-            width: 60px;
-            height: 70px;
-            background: linear-gradient(135deg, #f472b6, #f9a8d4);
-            border-radius: 30px 30px 0 0;
-            position: absolute;
-            top: 70px;
-            left: 30px;
-            clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
-        }
-
-        .arm {
-            width: 8px;
-            height: 40px;
-            background: #f9a8d4;
-            border-radius: 4px;
-            position: absolute;
-        }
-
-        .leg {
-            width: 10px;
-            height: 50px;
-            background: #f9a8d4;
-            border-radius: 5px;
-            position: absolute;
-            top: 140px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روتينيات - شاركي روتينك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1 style="color: #9d174d; font-size: 2.8rem; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">سيدات في روتينهن 💖</h1>
-    <p style="color: #be185d; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">شخصيات أنثوية حقيقية تمارس روتينها اليومي</p>
-    
-    <div class="logo-container">
-        
-        <!-- التصميم 1: سيدة تسقي النباتات -->
-        <div class="logo-option">
-            <div class="floating-element" style="top: 20%; left: 15%; animation-delay: 0s;">🌸</div>
-            <div class="floating-element" style="top: 60%; left: 80%; animation-delay: 1s;">✨</div>
-            <div class="logo-preview">
-                <div class="woman-figure">
-                    <!-- الرأس -->
-                    <div class="head"></div>
-                    
-                    <!-- الجسم -->
-                    <div class="body"></div>
-                    
-                    <!-- الفستان -->
-                    <div class="dress"></div>
-                    
-                    <!-- الذراع اليسرى - تحمل إبريق -->
-                    <div class="arm" style="left: 25px; top: 45px; transform: rotate(-30deg);">
-                        <div style="width: 15px; height: 20px; background: #f59e0b; border-radius: 5px; position: absolute; top: -10px; left: -4px;"></div>
+    <!-- الهيدر -->
+    <header class="app-header">
+        <nav class="nav">
+            <div class="app-logo">
+                <div class="logo-icon">
+                    <div class="yoga-woman">
+                        <div class="yoga-head"></div>
+                        <div class="yoga-body"></div>
+                        <div class="yoga-arms"></div>
+                        <div class="yoga-legs"></div>
                     </div>
-                    
-                    <!-- الذراع اليمنى -->
-                    <div class="arm" style="left: 87px; top: 50px; transform: rotate(20deg);"></div>
-                    
-                    <!-- الأرجل -->
-                    <div class="leg" style="left: 45px;"></div>
-                    <div class="leg" style="left: 65px;"></div>
-                    
-                    <!-- قطرات ماء -->
-                    <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 30px; left: 15px; animation: waterDrop 2s infinite;">
-                        <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 8px; left: 0; animation: waterDrop 2s infinite 0.3s;"></div>
-                        <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 16px; left: 0; animation: waterDrop 2s infinite 0.6s;"></div>
+                </div>
+                <h1>روتينيات</h1>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="showPostForm()">
+                    <i class="fas fa-plus"></i>
+                    منشور جديد
+                </button>
+                <div class="user-points">
+                    <span class="points">1,245</span>
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- قسم المنافسة الأسبوعية -->
+    <section class="competition-section">
+        <div class="container">
+            <div class="competition-card">
+                <div class="competition-header">
+                    <h2>🏆 منافسة الأسبوع</h2>
+                    <div class="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="competitionTimer">6 أيام متبقية</span>
                     </div>
-                    
-                    <!-- نباتات -->
-                    <div style="width: 8px; height: 15px; background: #10b981; position: absolute; top: 130px; left: 20px; border-radius: 4px;">
-                        <div style="width: 12px; height: 8px; background: #10b981; position: absolute; top: -5px; left: -2px; border-radius: 50%;"></div>
+                </div>
+                <div class="weekly-theme">
+                    <h3>موضوع هذا الأسبوع: "روتين العناية الصباحي"</h3>
+                    <p>شاركي روتينك واربحي جائزة الأسبوع!</p>
+                </div>
+                <div class="leaders-board">
+                    <div class="leader">
+                        <img src="https://via.placeholder.com/40" alt="المتسابقة الأولى">
+                        <span>سارة</span>
+                        <span class="votes">1,245 صوت</span>
                     </div>
-                    
-                    <div style="width: 6px; height: 12px; background: #10b981; position: absolute; top: 135px; left: 35px; border-radius: 3px;">
-                        <div style="width: 10px; height: 6px; background: #10b981; position: absolute; top: -4px; left: -2px; border-radius: 50%;"></div>
+                    <div class="leader">
+                        <img src="https://via.placeholder.com/40" alt="المتسابقة الثانية">
+                        <span>فاطمة</span>
+                        <span class="votes">1,120 صوت</span>
+                    </div>
+                    <div class="leader">
+                        <img src="https://via.placeholder.com/40" alt="المتسابقة الثالثة">
+                        <span>نور</span>
+                        <span class="votes">980 صوت</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تبويبات التصفية -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">كل المنشورات</button>
+                <button class="filter-tab" data-filter="morning">🌞 صباحي</button>
+                <button class="filter-tab" data-filter="evening">🌙 مسائي</button>
+                <button class="filter-tab" data-filter="popular">🔥 الأكثر تفاعلاً</button>
+                <button class="filter-tab" data-filter="weekly">🏆 مسابقة الأسبوع</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- شبكة المنشورات -->
+    <section class="posts-section">
+        <div class="container">
+            <div class="posts-grid" id="postsGrid">
+                <!-- المنشورات تظهر هنا -->
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج إضافة منشور -->
+    <div class="post-modal" id="postModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> منشور جديد</h3>
+                <button class="close-btn" onclick="hidePostForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <form class="post-form" id="postForm">
+                <div class="form-group">
+                    <label>عنوان المنشور</label>
+                    <input type="text" id="postTitle" placeholder="مثال: روتين العناية بالبشرة الصباحي..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label>وصف الروتين</label>
+                    <textarea id="postContent" placeholder="شاركي تفاصيل روتينك..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>نوع الروتين</label>
+                    <div class="theme-selection">
+                        <label class="theme-option">
+                            <input type="radio" name="theme" value="morning" required>
+                            <div class="option-content">
+                                <i class="fas fa-sun"></i>
+                                <span>روتين صباحي</span>
+                            </div>
+                        </label>
+                        <label class="theme-option">
+                            <input type="radio" name="theme" value="evening" required>
+                            <div class="option-content">
+                                <i class="fas fa-moon"></i>
+                                <span>روتين مسائي</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
                 
-                <!-- نجوم حولها -->
-                <div style="position: absolute; top: 30px; right: 10px; animation: twinkle 1.5s infinite;">⭐</div>
-                <div style="position: absolute; bottom: 40px; left: 10px; animation: twinkle 1.5s infinite 0.5s;">✨</div>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تعتني بنباتاتها في روتين الصباح</p>
-            <div class="magic-badge">عناية وطبيعة</div>
-        </div>
-
-        <!-- التصميم 2: سيدة تمارس اليوجا -->
-        <div class="logo-option">
-            <div class="floating-element" style="top: 25%; left: 75%; animation-delay: 0.8s;">🪷</div>
-            <div class="floating-element" style="top: 65%; left: 25%; animation-delay: 2s;">🎀</div>
-            <div class="logo-preview">
-                <div class="woman-figure">
-                    <!-- الرأس -->
-                    <div class="head"></div>
-                    
-                    <!-- الجسم في وضعية اليوجا -->
-                    <div class="body" style="width: 35px; height: 40px; top: 40px; left: 42px; transform: rotate(10deg);"></div>
-                    
-                    <!-- الفستان -->
-                    <div class="dress" style="width: 50px; height: 60px; top: 75px; left: 35px; clip-path: polygon(0% 0%, 100% 0%, 60% 100%, 40% 100%);"></div>
-                    
-                    <!-- الذراعان مرفوعتان -->
-                    <div class="arm" style="left: 30px; top: 45px; transform: rotate(-45deg); height: 35px;"></div>
-                    <div class="arm" style="left: 82px; top: 45px; transform: rotate(45deg); height: 35px;"></div>
-                    
-                    <!-- الأرجل متقاطعتان -->
-                    <div class="leg" style="left: 50px; top: 130px; transform: rotate(-20deg); height: 40px;"></div>
-                    <div class="leg" style="left: 60px; top: 130px; transform: rotate(20deg); height: 40px;"></div>
-                    
-                    <!-- هالة طاقة -->
-                    <div style="width: 80px; height: 80px; border: 2px solid #ec4899; border-radius: 50%; position: absolute; top: 50px; left: 20px; opacity: 0.5; animation: pulse 2s infinite;"></div>
-                    
-                    <!-- زهور لوتس -->
-                    <div style="width: 20px; height: 20px; background: #f472b6; border-radius: 50%; position: absolute; bottom: 30px; left: 10px; opacity: 0.8; animation: float 3s infinite;">
-                        <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; top: 4px; left: 7px;"></div>
+                <div class="form-group">
+                    <label>إضافة وسائط</label>
+                    <div class="media-upload">
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>اسحبي الصور أو الفيديوهات هنا</p>
+                            <span>أو انقري للاختيار</span>
+                            <input type="file" id="mediaFiles" multiple accept="image/*,video/*" hidden>
+                        </div>
+                        <div class="media-preview" id="mediaPreview"></div>
                     </div>
                 </div>
                 
-                <!-- رموز طاقة -->
-                <div style="position: absolute; top: 20px; left: 30px; animation: float 2s infinite;">🌙</div>
-                <div style="position: absolute; top: 40px; right: 20px; animation: float 2s infinite 0.7s;">💫</div>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تمارس اليوجا في روتين السلام الداخلي</p>
-            <div class="magic-badge">طاقة وتأمل</div>
-        </div>
-
-        <!-- التصميم 3: سيدة تقرأ -->
-        <div class="logo-option">
-            <div class="floating-element" style="top: 30%; left: 20%; animation-delay: 0.5s;">📖</div>
-            <div class="floating-element" style="top: 70%; left: 70%; animation-delay: 1.5s;">⭐</div>
-            <div class="logo-preview">
-                <div class="woman-figure">
-                    <!-- الرأس -->
-                    <div class="head"></div>
-                    
-                    <!-- الجسم جالس -->
-                    <div class="body" style="width: 35px; height: 35px; top: 40px; left: 42px;"></div>
-                    
-                    <!-- الفستان -->
-                    <div class="dress" style="width: 50px; height: 45px; top: 70px; left: 35px; clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);"></div>
-                    
-                    <!-- الذراع اليسرى - تمسك الكتاب -->
-                    <div class="arm" style="left: 25px; top: 50px; transform: rotate(-20deg); height: 25px;">
-                        <div style="width: 20px; height: 25px; background: #f59e0b; border-radius: 3px; position: absolute; top: -5px; left: -6px;"></div>
-                    </div>
-                    
-                    <!-- الذراع اليمنى -->
-                    <div class="arm" style="left: 87px; top: 50px; transform: rotate(10deg); height: 25px;"></div>
-                    
-                    <!-- الأرجل -->
-                    <div class="leg" style="left: 48px; top: 115px; height: 30px;"></div>
-                    <div class="leg" style="left: 62px; top: 115px; height: 30px;"></div>
-                    
-                    <!-- كلمات تطفو من الكتاب -->
-                    <div style="width: 6px; height: 6px; background: #8b5cf6; border-radius: 50%; position: absolute; top: 35px; left: 15px; animation: floatUp 2s infinite;"></div>
-                    <div style="width: 4px; height: 4px; background: #ec4899; border-radius: 50%; position: absolute; top: 30px; left: 20px; animation: floatUp 2s infinite 0.4s;"></div>
-                    <div style="width: 5px; height: 5px; background: #f59e0b; border-radius: 50%; position: absolute; top: 25px; left: 12px; animation: floatUp 2s infinite 0.8s;"></div>
-                    
-                    <!-- فنجان شاي -->
-                    <div style="width: 12px; height: 15px; background: #f59e0b; position: absolute; bottom: 40px; right: 20px; border-radius: 3px;">
-                        <div style="width: 8px; height: 8px; background: #f59e0b; position: absolute; top: -4px; left: 2px; border-radius: 50%;"></div>
-                    </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="joinCompetition">
+                        <span>المشاركة في منافسة هذا الأسبوع</span>
+                    </label>
                 </div>
                 
-                <!-- نجوم المعرفة -->
-                <div style="position: absolute; top: 25px; right: 15px; animation: twinkle 1.2s infinite;">💫</div>
-                <div style="position: absolute; bottom: 50px; left: 25px; animation: twinkle 1.2s infinite 0.6s;">✨</div>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تستمتع بالقراءة في روتين المساء</p>
-            <div class="magic-badge">معرفة واسترخاء</div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hidePostForm()">إلغاء</button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        نشر المنشور
+                    </button>
+                </div>
+            </form>
         </div>
-
     </div>
 
-    <style>
-        @keyframes waterDrop {
-            0% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(20px); opacity: 0; }
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.6; }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-25px); opacity: 0; }
-        }
-    </style>
-
-    <script>
-        // إضافة عناصر عائمة
-        document.addEventListener('DOMContentLoaded', function() {
-            const elements = ['✨', '⭐', '🎀', '🪷', '🌸', '📖', '💫', '🌙'];
-            const containers = document.querySelectorAll('.logo-option');
-            
-            containers.forEach(container => {
-                for (let i = 0; i < 3; i++) {
-                    const element = document.createElement('div');
-                    element.className = 'floating-element';
-                    element.textContent = elements[Math.floor(Math.random() * elements.length)];
-                    element.style.top = Math.random() * 80 + 10 + '%';
-                    element.style.left = Math.random() * 80 + 10 + '%';
-                    element.style.animationDelay = Math.random() * 3 + 's';
-                    container.appendChild(element);
-                }
-            });
-        });
-    </script>
+    <script src="js/app.js"></script>
 </body>
 </html>
