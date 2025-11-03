@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>سيدة الروتين - روتينيات</title>
+    <title>سيدات حقيقيات - روتينيات</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
         
@@ -23,36 +23,23 @@
         }
         
         .logo-option {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
             padding: 3rem 2rem;
             border-radius: 30px;
-            box-shadow: 
-                0 25px 60px rgba(236, 72, 153, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 60px rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             transition: all 0.5s ease;
             position: relative;
-            overflow: hidden;
         }
         
         .logo-preview {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             margin: 0 auto 2.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 40px;
             position: relative;
-            background: linear-gradient(135deg, 
-                #fdf2f8 0%, 
-                #fce7f3 30%, 
-                #fbcfe8 60%, 
-                #f9a8d4 100%);
-            box-shadow: 
-                0 20px 50px rgba(236, 72, 153, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
         
         .logo-name {
@@ -71,8 +58,6 @@
             line-height: 1.6;
             font-weight: 500;
             opacity: 0.8;
-            max-width: 300px;
-            margin: 0 auto;
         }
         
         .magic-badge {
@@ -84,7 +69,6 @@
             font-size: 0.9rem;
             font-weight: 600;
             margin-top: 1.5rem;
-            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
         }
 
         /* حركات النجوم */
@@ -100,177 +84,248 @@
             50% { opacity: 1; transform: scale(1.1); }
             100% { transform: translate(80px, -80px) rotate(180deg) scale(0.8); opacity: 0; }
         }
+
+        /* شخصية أنثوية حقيقية */
+        .woman-figure {
+            position: relative;
+            width: 120px;
+            height: 160px;
+        }
+
+        .head {
+            width: 30px;
+            height: 30px;
+            background: #f9a8d4;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 45px;
+        }
+
+        .body {
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            border-radius: 20px 20px 0 0;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+        }
+
+        .dress {
+            width: 60px;
+            height: 70px;
+            background: linear-gradient(135deg, #f472b6, #f9a8d4);
+            border-radius: 30px 30px 0 0;
+            position: absolute;
+            top: 70px;
+            left: 30px;
+            clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
+        }
+
+        .arm {
+            width: 8px;
+            height: 40px;
+            background: #f9a8d4;
+            border-radius: 4px;
+            position: absolute;
+        }
+
+        .leg {
+            width: 10px;
+            height: 50px;
+            background: #f9a8d4;
+            border-radius: 5px;
+            position: absolute;
+            top: 140px;
+        }
     </style>
 </head>
 <body>
-    <h1 style="color: #9d174d; font-size: 2.8rem; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">سيدة الروتين السحري ✨</h1>
-    <p style="color: #be185d; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">امرأة تخلق السحر من روتينها اليومي</p>
+    <h1 style="color: #9d174d; font-size: 2.8rem; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">سيدات في روتينهن 💖</h1>
+    <p style="color: #be185d; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">شخصيات أنثوية حقيقية تمارس روتينها اليومي</p>
     
     <div class="logo-container">
         
-        <!-- التصميم 1: سيدة تسقي الزهور -->
+        <!-- التصميم 1: سيدة تسقي النباتات -->
         <div class="logo-option">
             <div class="floating-element" style="top: 20%; left: 15%; animation-delay: 0s;">🌸</div>
             <div class="floating-element" style="top: 60%; left: 80%; animation-delay: 1s;">✨</div>
             <div class="logo-preview">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                    <defs>
-                        <linearGradient id="ladyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
-                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
-                        </linearGradient>
-                    </defs>
+                <div class="woman-figure">
+                    <!-- الرأس -->
+                    <div class="head"></div>
                     
-                    <!-- جسم السيدة -->
-                    <circle cx="60" cy="45" r="15" fill="url(#ladyGrad)"/>
+                    <!-- الجسم -->
+                    <div class="body"></div>
                     
-                    <!-- التنورة -->
-                    <path d="M45,60 Q60,80 75,60 Q70,75 60,85 Q50,75 45,60 Z" fill="url(#ladyGrad)"/>
+                    <!-- الفستان -->
+                    <div class="dress"></div>
                     
-                    <!-- اليدان -->
-                    <path d="M40,50 L30,40" stroke="url(#ladyGrad)" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M80,50 L90,40" stroke="url(#ladyGrad)" stroke-width="4" stroke-linecap="round"/>
+                    <!-- الذراع اليسرى - تحمل إبريق -->
+                    <div class="arm" style="left: 25px; top: 45px; transform: rotate(-30deg);">
+                        <div style="width: 15px; height: 20px; background: #f59e0b; border-radius: 5px; position: absolute; top: -10px; left: -4px;"></div>
+                    </div>
                     
-                    <!-- إبريق الري -->
-                    <path d="M30,35 L35,30 L40,35 L40,45 L30,45 Z" fill="#F9A8D4"/>
+                    <!-- الذراع اليمنى -->
+                    <div class="arm" style="left: 87px; top: 50px; transform: rotate(20deg);"></div>
+                    
+                    <!-- الأرجل -->
+                    <div class="leg" style="left: 45px;"></div>
+                    <div class="leg" style="left: 65px;"></div>
                     
                     <!-- قطرات ماء -->
-                    <circle cx="35" cy="30" r="2" fill="#3B82F6" opacity="0.8">
-                        <animate attributeName="cy" values="30;35;30" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="38" cy="28" r="1.5" fill="#3B82F6" opacity="0.6">
-                        <animate attributeName="cy" values="28;33;28" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
-                    </circle>
+                    <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 30px; left: 15px; animation: waterDrop 2s infinite;">
+                        <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 8px; left: 0; animation: waterDrop 2s infinite 0.3s;"></div>
+                        <div style="width: 4px; height: 4px; background: #3b82f6; border-radius: 50%; position: absolute; top: 16px; left: 0; animation: waterDrop 2s infinite 0.6s;"></div>
+                    </div>
                     
-                    <!-- زهور تظهر -->
-                    <circle cx="50" cy="70" r="4" fill="#EC4899">
-                        <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="70" cy="65" r="3" fill="#F472B6">
-                        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-                    </circle>
+                    <!-- نباتات -->
+                    <div style="width: 8px; height: 15px; background: #10b981; position: absolute; top: 130px; left: 20px; border-radius: 4px;">
+                        <div style="width: 12px; height: 8px; background: #10b981; position: absolute; top: -5px; left: -2px; border-radius: 50%;"></div>
+                    </div>
                     
-                    <!-- نجوم حولها -->
-                    <path d="M25,60 L27,57 L29,60 L27,63 Z" fill="#F59E0B" opacity="0.7">
-                        <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M95,50 L97,47 L99,50 L97,53 Z" fill="#F59E0B" opacity="0.7">
-                        <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite" begin="0.5s"/>
-                    </path>
-                </svg>
+                    <div style="width: 6px; height: 12px; background: #10b981; position: absolute; top: 135px; left: 35px; border-radius: 3px;">
+                        <div style="width: 10px; height: 6px; background: #10b981; position: absolute; top: -4px; left: -2px; border-radius: 50%;"></div>
+                    </div>
+                </div>
+                
+                <!-- نجوم حولها -->
+                <div style="position: absolute; top: 30px; right: 10px; animation: twinkle 1.5s infinite;">⭐</div>
+                <div style="position: absolute; bottom: 40px; left: 10px; animation: twinkle 1.5s infinite 0.5s;">✨</div>
             </div>
             <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تسقي الزهور، تخلق الجمال من روتينها اليومي</p>
-            <div class="magic-badge">جمال وروتين</div>
+            <p class="logo-desc">سيدة تعتني بنباتاتها في روتين الصباح</p>
+            <div class="magic-badge">عناية وطبيعة</div>
         </div>
 
-        <!-- التصميم 2: سيدة تقرأ كتاب -->
-        <div class="logo-option">
-            <div class="floating-element" style="top: 30%; left: 20%; animation-delay: 0.5s;">📖</div>
-            <div class="floating-element" style="top: 70%; left: 70%; animation-delay: 1.5s;">⭐</div>
-            <div class="logo-preview">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                    <defs>
-                        <linearGradient id="readerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
-                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- جسم السيدة -->
-                    <circle cx="60" cy="45" r="15" fill="url(#readerGrad)"/>
-                    
-                    <!-- الجلوس -->
-                    <path d="M45,60 Q60,75 75,60 L75,80 L45,80 Z" fill="url(#readerGrad)"/>
-                    
-                    <!-- الكتاب -->
-                    <rect x="65" y="50" width="20" height="25" rx="3" fill="#F9A8D4"/>
-                    <line x1="65" y1="55" x2="85" y2="55" stroke="white" stroke-width="1"/>
-                    <line x1="65" y1="60" x2="85" y2="60" stroke="white" stroke-width="1"/>
-                    <line x1="65" y1="65" x2="85" y2="65" stroke="white" stroke-width="1"/>
-                    
-                    <!-- كلمات تطفو من الكتاب -->
-                    <path d="M80,45 L82,42 L84,45 L82,48 Z" fill="#8B5CF6" opacity="0.7">
-                        <animate attributeName="y" values="45;40;45" dur="2s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M75,42 L77,39 L79,42 L77,45 Z" fill="#EC4899" opacity="0.7">
-                        <animate attributeName="y" values="42;37;42" dur="2s" repeatCount="indefinite" begin="0.3s"/>
-                    </path>
-                    <path d="M85,48 L87,45 L89,48 L87,51 Z" fill="#F59E0B" opacity="0.7">
-                        <animate attributeName="y" values="48;43;48" dur="2s" repeatCount="indefinite" begin="0.6s"/>
-                    </path>
-                    
-                    <!-- فنجان شاي -->
-                    <path d="M40,55 L45,50 L50,55 L50,60 L40,60 Z" fill="#F59E0B"/>
-                    <path d="M45,50 L47,48 L49,50" stroke="#F59E0B" stroke-width="2" fill="none"/>
-                </svg>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تقرأ بجانب فنجان شاي، روتين المعرفة والاسترخاء</p>
-            <div class="magic-badge">قراءة واسترخاء</div>
-        </div>
-
-        <!-- التصميم 3: سيدة تمارس اليوجا -->
+        <!-- التصميم 2: سيدة تمارس اليوجا -->
         <div class="logo-option">
             <div class="floating-element" style="top: 25%; left: 75%; animation-delay: 0.8s;">🪷</div>
             <div class="floating-element" style="top: 65%; left: 25%; animation-delay: 2s;">🎀</div>
             <div class="logo-preview">
-                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                    <defs>
-                        <linearGradient id="yogaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
-                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
-                        </linearGradient>
-                    </defs>
+                <div class="woman-figure">
+                    <!-- الرأس -->
+                    <div class="head"></div>
                     
-                    <!-- رأس السيدة -->
-                    <circle cx="60" cy="35" r="12" fill="url(#yogaGrad)"/>
+                    <!-- الجسم في وضعية اليوجا -->
+                    <div class="body" style="width: 35px; height: 40px; top: 40px; left: 42px; transform: rotate(10deg);"></div>
                     
-                    <!-- وضعية اليوجا -->
-                    <path d="M60,47 Q45,60 60,75 Q75,60 60,47 Z" fill="url(#yogaGrad)" opacity="0.9"/>
+                    <!-- الفستان -->
+                    <div class="dress" style="width: 50px; height: 60px; top: 75px; left: 35px; clip-path: polygon(0% 0%, 100% 0%, 60% 100%, 40% 100%);"></div>
                     
-                    <!-- اليدان -->
-                    <path d="M48,55 L40,50" stroke="url(#yogaGrad)" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M72,55 L80,50" stroke="url(#yogaGrad)" stroke-width="3" stroke-linecap="round"/>
+                    <!-- الذراعان مرفوعتان -->
+                    <div class="arm" style="left: 30px; top: 45px; transform: rotate(-45deg); height: 35px;"></div>
+                    <div class="arm" style="left: 82px; top: 45px; transform: rotate(45deg); height: 35px;"></div>
                     
-                    <!-- طاقة تخرج منها -->
-                    <circle cx="60" cy="35" r="8" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.6">
-                        <animate attributeName="r" values="8;15;8" dur="2s" repeatCount="indefinite"/>
-                        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
-                    </circle>
+                    <!-- الأرجل متقاطعتان -->
+                    <div class="leg" style="left: 50px; top: 130px; transform: rotate(-20deg); height: 40px;"></div>
+                    <div class="leg" style="left: 60px; top: 130px; transform: rotate(20deg); height: 40px;"></div>
+                    
+                    <!-- هالة طاقة -->
+                    <div style="width: 80px; height: 80px; border: 2px solid #ec4899; border-radius: 50%; position: absolute; top: 50px; left: 20px; opacity: 0.5; animation: pulse 2s infinite;"></div>
                     
                     <!-- زهور لوتس -->
-                    <path d="M35,40 Q38,35 41,40 Q38,45 35,40 Z" fill="#F472B6" opacity="0.8">
-                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M85,45 Q88,40 91,45 Q88,50 85,45 Z" fill="#F472B6" opacity="0.8">
-                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
-                    </path>
-                    
-                    <!-- نجوم الطاقة -->
-                    <path d="M50,30 L52,27 L54,30 L52,33 Z" fill="#F59E0B">
-                        <animate attributeName="y" values="30;28;30" dur="1s" repeatCount="indefinite"/>
-                    </path>
-                    <path d="M70,32 L72,29 L74,32 L72,35 Z" fill="#F59E0B">
-                        <animate attributeName="y" values="32;30;32" dur="1s" repeatCount="indefinite" begin="0.3s"/>
-                    </path>
-                </svg>
+                    <div style="width: 20px; height: 20px; background: #f472b6; border-radius: 50%; position: absolute; bottom: 30px; left: 10px; opacity: 0.8; animation: float 3s infinite;">
+                        <div style="width: 6px; height: 6px; background: white; border-radius: 50%; position: absolute; top: 4px; left: 7px;"></div>
+                    </div>
+                </div>
+                
+                <!-- رموز طاقة -->
+                <div style="position: absolute; top: 20px; left: 30px; animation: float 2s infinite;">🌙</div>
+                <div style="position: absolute; top: 40px; right: 20px; animation: float 2s infinite 0.7s;">💫</div>
             </div>
             <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">سيدة تمارس اليوجا، روتين السلام الداخلي والطاقة</p>
-            <div class="magic-badge">طاقة وسلام</div>
+            <p class="logo-desc">سيدة تمارس اليوجا في روتين السلام الداخلي</p>
+            <div class="magic-badge">طاقة وتأمل</div>
+        </div>
+
+        <!-- التصميم 3: سيدة تقرأ -->
+        <div class="logo-option">
+            <div class="floating-element" style="top: 30%; left: 20%; animation-delay: 0.5s;">📖</div>
+            <div class="floating-element" style="top: 70%; left: 70%; animation-delay: 1.5s;">⭐</div>
+            <div class="logo-preview">
+                <div class="woman-figure">
+                    <!-- الرأس -->
+                    <div class="head"></div>
+                    
+                    <!-- الجسم جالس -->
+                    <div class="body" style="width: 35px; height: 35px; top: 40px; left: 42px;"></div>
+                    
+                    <!-- الفستان -->
+                    <div class="dress" style="width: 50px; height: 45px; top: 70px; left: 35px; clip-path: polygon(0% 0%, 100% 0%, 70% 100%, 30% 100%);"></div>
+                    
+                    <!-- الذراع اليسرى - تمسك الكتاب -->
+                    <div class="arm" style="left: 25px; top: 50px; transform: rotate(-20deg); height: 25px;">
+                        <div style="width: 20px; height: 25px; background: #f59e0b; border-radius: 3px; position: absolute; top: -5px; left: -6px;"></div>
+                    </div>
+                    
+                    <!-- الذراع اليمنى -->
+                    <div class="arm" style="left: 87px; top: 50px; transform: rotate(10deg); height: 25px;"></div>
+                    
+                    <!-- الأرجل -->
+                    <div class="leg" style="left: 48px; top: 115px; height: 30px;"></div>
+                    <div class="leg" style="left: 62px; top: 115px; height: 30px;"></div>
+                    
+                    <!-- كلمات تطفو من الكتاب -->
+                    <div style="width: 6px; height: 6px; background: #8b5cf6; border-radius: 50%; position: absolute; top: 35px; left: 15px; animation: floatUp 2s infinite;"></div>
+                    <div style="width: 4px; height: 4px; background: #ec4899; border-radius: 50%; position: absolute; top: 30px; left: 20px; animation: floatUp 2s infinite 0.4s;"></div>
+                    <div style="width: 5px; height: 5px; background: #f59e0b; border-radius: 50%; position: absolute; top: 25px; left: 12px; animation: floatUp 2s infinite 0.8s;"></div>
+                    
+                    <!-- فنجان شاي -->
+                    <div style="width: 12px; height: 15px; background: #f59e0b; position: absolute; bottom: 40px; right: 20px; border-radius: 3px;">
+                        <div style="width: 8px; height: 8px; background: #f59e0b; position: absolute; top: -4px; left: 2px; border-radius: 50%;"></div>
+                    </div>
+                </div>
+                
+                <!-- نجوم المعرفة -->
+                <div style="position: absolute; top: 25px; right: 15px; animation: twinkle 1.2s infinite;">💫</div>
+                <div style="position: absolute; bottom: 50px; left: 25px; animation: twinkle 1.2s infinite 0.6s;">✨</div>
+            </div>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">سيدة تستمتع بالقراءة في روتين المساء</p>
+            <div class="magic-badge">معرفة واسترخاء</div>
         </div>
 
     </div>
 
+    <style>
+        @keyframes waterDrop {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-25px); opacity: 0; }
+        }
+    </style>
+
     <script>
         // إضافة عناصر عائمة
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = ['✨', '⭐', '🎀', '🪷', '🌸', '📖', '🧘‍♀️', '💖'];
+            const elements = ['✨', '⭐', '🎀', '🪷', '🌸', '📖', '💫', '🌙'];
             const containers = document.querySelectorAll('.logo-option');
             
             containers.forEach(container => {
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < 3; i++) {
                     const element = document.createElement('div');
                     element.className = 'floating-element';
                     element.textContent = elements[Math.floor(Math.random() * elements.length)];
@@ -283,4 +338,4 @@
         });
     </script>
 </body>
-    </html>
+</html>
