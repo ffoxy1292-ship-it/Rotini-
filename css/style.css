@@ -37,70 +37,70 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
-.app-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-icon {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
+/* اللوجو الجديد - سيدة اليوجا */
 .yoga-logo {
     width: 30px;
-    height: 40px;
+    height: 35px;
     position: relative;
+    margin: 0 auto;
 }
 
-.yoga-head {
-    width: 10px;
-    height: 10px;
+.yoga-logo .head {
+    width: 8px;
+    height: 8px;
     background: white;
     border-radius: 50%;
     position: absolute;
     top: 2px;
+    left: 11px;
+}
+
+.yoga-logo .body {
+    width: 10px;
+    height: 12px;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
     left: 10px;
 }
 
-.yoga-body {
-    width: 12px;
-    height: 15px;
+.yoga-logo .arms {
+    width: 16px;
+    height: 3px;
     background: white;
-    border-radius: 6px;
+    border-radius: 2px;
     position: absolute;
     top: 12px;
-    left: 9px;
+    left: 7px;
 }
 
-.yoga-arms {
-    width: 20px;
-    height: 4px;
+.yoga-logo .legs {
+    width: 3px;
+    height: 12px;
     background: white;
     border-radius: 2px;
     position: absolute;
-    top: 15px;
-    left: 5px;
-}
-
-.yoga-legs {
-    width: 4px;
-    height: 15px;
-    background: white;
-    border-radius: 2px;
-    position: absolute;
-    top: 27px;
+    top: 22px;
     left: 13px;
 }
+
+.yoga-logo .energy {
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+}
+
 
 .app-logo h1 {
     background: linear-gradient(135deg, #ec4899, #8b5cf6);
