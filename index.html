@@ -75,13 +75,14 @@
     <!-- تبويبات التصفية -->
     <section class="filters-section">
         <div class="container">
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">كل المنشورات</button>
-                <button class="filter-tab" data-filter="morning">🌞 صباحي</button>
-                <button class="filter-tab" data-filter="evening">🌙 مسائي</button>
-                <button class="filter-tab" data-filter="popular">🔥 الأكثر تفاعلاً</button>
-                <button class="filter-tab" data-filter="weekly">🏆 مسابقة الأسبوع</button>
-            </div>
+           <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterPosts('all')">كل المنشورات</button>
+    <button class="filter-tab" onclick="filterPosts('morning')">🌞 صباحي</button>
+    <button class="filter-tab" onclick="filterPosts('evening')">🌙 مسائي</button>
+    <button class="filter-tab" onclick="filterPosts('popular')">🔥 الأكثر تفاعلاً</button>
+    <button class="filter-tab" onclick="filterPosts('weekly')">🏆 مسابقة الأسبوع</button>
+           </div> 
+            
         </div>
     </section>
 
