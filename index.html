@@ -14,22 +14,19 @@
             <div class="app-logo">
                 <div class="logo-icon">
                     <!-- اللوجو الجديد - سيدة اليوجا -->
-                    <div class="app-logo">
-    <div class="logo-icon">
-        <!-- اللوجو الجديد - سيدة اليوجا من التصميم الثاني -->
-        <div class="yoga-logo">
-            <div class="energy"></div>
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="dress"></div>
-            <div class="arm left"></div>
-            <div class="arm right"></div>
-            <div class="leg left"></div>
-            <div class="leg right"></div>
-        </div>
-    </div>
-    <h1>روتينات</h1>
+                    <div class="yoga-logo">
+                        <div class="energy"></div>
+                        <div class="head"></div>
+                        <div class="body"></div>
+                        <div class="dress"></div>
+                        <div class="arm left"></div>
+                        <div class="arm right"></div>
+                        <div class="leg left"></div>
+                        <div class="leg right"></div>
                     </div>
+                </div>
+                <h1>روتينيات</h1>
+            </div>
             
             <div class="nav-actions">
                 <button class="btn-primary" onclick="showPostForm()">
@@ -65,44 +62,6 @@
             </div>
         </nav>
     </header>
-
-    <!-- باقي المحتوى يبقى كما هو -->
-    <!-- ... -->
-
-
-    <!-- زر الدخول/الملف الشخصي -->
-<div class="nav-actions">
-    <button class="btn-primary" onclick="showPostForm()">
-        <i class="fas fa-plus"></i>
-        منشور جديد
-    </button>
-    
-    <!-- إذا ما كان مسجل دخول -->
-    <div id="authButtons" class="auth-buttons">
-        <button class="btn-secondary" onclick="showLoginForm()">
-            <i class="fas fa-sign-in-alt"></i>
-            تسجيل الدخول
-        </button>
-        <button class="btn-outline" onclick="showRegisterForm()">
-            <i class="fas fa-user-plus"></i>
-            إنشاء حساب
-        </button>
-    </div>
-    
-    <!-- إذا مسجل دخول -->
-    <div id="userProfile" class="user-profile" style="display: none;">
-        <div class="user-avatar" onclick="toggleUserMenu()">
-            <img id="userAvatar" src="https://via.placeholder.com/40/ec4899/ffffff?text=?" alt="صورة المستخدم">
-            <span id="userName">مستخدم</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="user-menu" id="userMenu">
-            <a href="#" onclick="showProfilePage()"><i class="fas fa-user"></i> الملف الشخصي</a>
-            <a href="#" onclick="showMyPosts()"><i class="fas fa-list"></i> منشوراتي</a>
-            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
-        </div>
-    </div>
-</div>
 
     <!-- قسم المنافسة الأسبوعية -->
     <section class="competition-section">
@@ -144,13 +103,12 @@
     <section class="filters-section">
         <div class="container">
            <div class="filter-tabs">
-    <button class="filter-tab active" onclick="filterPosts('all')">كل المنشورات</button>
-    <button class="filter-tab" onclick="filterPosts('morning')">🌞 صباحي</button>
-    <button class="filter-tab" onclick="filterPosts('evening')">🌙 مسائي</button>
-    <button class="filter-tab" onclick="filterPosts('popular')">🔥 الأكثر تفاعلاً</button>
-    <button class="filter-tab" onclick="filterPosts('weekly')">🏆 مسابقة الأسبوع</button>
+                <button class="filter-tab active" onclick="filterPosts('all')">كل المنشورات</button>
+                <button class="filter-tab" onclick="filterPosts('morning')">🌞 صباحي</button>
+                <button class="filter-tab" onclick="filterPosts('evening')">🌙 مسائي</button>
+                <button class="filter-tab" onclick="filterPosts('popular')">🔥 الأكثر تفاعلاً</button>
+                <button class="filter-tab" onclick="filterPosts('weekly')">🏆 مسابقة الأسبوع</button>
            </div> 
-            
         </div>
     </section>
 
@@ -159,12 +117,17 @@
         <div class="container">
             <div class="posts-grid" id="postsGrid">
                 <!-- المنشورات تظهر هنا -->
+                <div class="no-posts">
+                    <i class="fas fa-feather"></i>
+                    <h3>لا توجد منشورات بعد</h3>
+                    <p>كني أول من يشارك روتينه!</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- نموذج إضافة منشور -->
-    <div class="post-modal" id="postModal">
+    <div class="post-modal" id="postModal" style="display: none;">
         <div class="modal-content">
             <div class="modal-header">
                 <h3><i class="fas fa-edit"></i> منشور جديد</h3>
@@ -235,116 +198,117 @@
         </div>
     </div>
 
-    <script src="js/app.js"></script>
     <!-- نموذج تسجيل الدخول -->
-<div class="auth-modal" id="loginModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</h3>
-            <button class="close-btn" onclick="hideLoginForm()">
-                <i class="fas fa-times"></i>
-            </button>
+    <div class="auth-modal" id="loginModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</h3>
+                <button class="close-btn" onclick="hideLoginForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="auth-form" id="loginForm">
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="loginEmail" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="loginPassword" placeholder="********" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideLoginForm()">إلغاء</button>
+                    <button type="submit" class="btn-primary">تسجيل الدخول</button>
+                </div>
+                <p class="auth-link">ليس لديك حساب؟ <a href="#" onclick="showRegisterForm()">أنشئ حساب جديد</a></p>
+            </form>
         </div>
-        <form class="auth-form" id="loginForm">
-            <div class="form-group">
-                <label>البريد الإلكتروني</label>
-                <input type="email" id="loginEmail" placeholder="example@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور</label>
-                <input type="password" id="loginPassword" placeholder="********" required>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="btn-secondary" onclick="hideLoginForm()">إلغاء</button>
-                <button type="submit" class="btn-primary">تسجيل الدخول</button>
-            </div>
-            <p class="auth-link">ليس لديك حساب؟ <a href="#" onclick="showRegisterForm()">أنشئ حساب جديد</a></p>
-        </form>
     </div>
-</div>
 
-<!-- نموذج إنشاء حساب -->
-<div class="auth-modal" id="registerModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h3><i class="fas fa-user-plus"></i> إنشاء حساب جديد</h3>
-            <button class="close-btn" onclick="hideRegisterForm()">
-                <i class="fas fa-times"></i>
-            </button>
+    <!-- نموذج إنشاء حساب -->
+    <div class="auth-modal" id="registerModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> إنشاء حساب جديد</h3>
+                <button class="close-btn" onclick="hideRegisterForm()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="registerName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="registerEmail" placeholder="example@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="registerPassword" placeholder="********" required>
+                </div>
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" id="registerConfirm" placeholder="********" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="hideRegisterForm()">إلغاء</button>
+                    <button type="submit" class="btn-primary">إنشاء حساب</button>
+                </div>
+                <p class="auth-link">لديك حساب بالفعل؟ <a href="#" onclick="showLoginForm()">سجل الدخول</a></p>
+            </form>
         </div>
-        <form class="auth-form" id="registerForm">
-            <div class="form-group">
-                <label>الاسم الكامل</label>
-                <input type="text" id="registerName" placeholder="أدخل اسمك الكامل" required>
-            </div>
-            <div class="form-group">
-                <label>البريد الإلكتروني</label>
-                <input type="email" id="registerEmail" placeholder="example@email.com" required>
-            </div>
-            <div class="form-group">
-                <label>كلمة المرور</label>
-                <input type="password" id="registerPassword" placeholder="********" required>
-            </div>
-            <div class="form-group">
-                <label>تأكيد كلمة المرور</label>
-                <input type="password" id="registerConfirm" placeholder="********" required>
-            </div>
-            <div class="form-actions">
-                <button type="button" class="btn-secondary" onclick="hideRegisterForm()">إلغاء</button>
-                <button type="submit" class="btn-primary">إنشاء حساب</button>
-            </div>
-            <p class="auth-link">لديك حساب بالفعل؟ <a href="#" onclick="showLoginForm()">سجل الدخول</a></p>
-        </form>
     </div>
-</div>
 
-<!-- صفحة الملف الشخصي -->
-<div class="profile-page" id="profilePage" style="display: none;">
-    <div class="profile-header">
-        <button class="back-btn" onclick="hideProfilePage()">
-            <i class="fas fa-arrow-right"></i>
-        </button>
-        <h2>الملف الشخصي</h2>
-    </div>
-    
-    <div class="profile-content">
-        <div class="profile-cover">
-            <div class="profile-avatar">
-                <img id="profileAvatar" src="https://via.placeholder.com/100/ec4899/ffffff?text=?" alt="صورة الملف">
-                <button class="edit-avatar" onclick="changeAvatar()">
-                    <i class="fas fa-camera"></i>
+    <!-- صفحة الملف الشخصي -->
+    <div class="profile-page" id="profilePage" style="display: none;">
+        <div class="profile-header">
+            <button class="back-btn" onclick="hideProfilePage()">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <h2>الملف الشخصي</h2>
+        </div>
+        
+        <div class="profile-content">
+            <div class="profile-cover">
+                <div class="profile-avatar">
+                    <img id="profileAvatar" src="https://via.placeholder.com/100/ec4899/ffffff?text=?" alt="صورة الملف">
+                    <button class="edit-avatar" onclick="changeAvatar()">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="profile-info">
+                <h3 id="profileName">الاسم</h3>
+                <p id="profileEmail">البريد الإلكتروني</p>
+                <p class="join-date">منضم منذ <span id="profileJoinDate">2024</span></p>
+            </div>
+            
+            <div class="profile-stats">
+                <div class="stat">
+                    <span class="stat-number" id="statPosts">0</span>
+                    <span class="stat-label">منشور</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="statVotes">0</span>
+                    <span class="stat-label">تصويت</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="statPoints">0</span>
+                    <span class="stat-label">نقطة</span>
+                </div>
+            </div>
+            
+            <div class="profile-actions">
+                <button class="btn-primary" onclick="editProfile()">
+                    <i class="fas fa-edit"></i>
+                    تعديل الملف الشخصي
                 </button>
             </div>
         </div>
-        
-        <div class="profile-info">
-            <h3 id="profileName">الاسم</h3>
-            <p id="profileEmail">البريد الإلكتروني</p>
-            <p class="join-date">منضم منذ <span id="profileJoinDate">2024</span></p>
-        </div>
-        
-        <div class="profile-stats">
-            <div class="stat">
-                <span class="stat-number" id="statPosts">0</span>
-                <span class="stat-label">منشور</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number" id="statVotes">0</span>
-                <span class="stat-label">تصويت</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number" id="statPoints">0</span>
-                <span class="stat-label">نقطة</span>
-            </div>
-        </div>
-        
-        <div class="profile-actions">
-            <button class="btn-primary" onclick="editProfile()">
-                <i class="fas fa-edit"></i>
-                تعديل الملف الشخصي
-            </button>
-        </div>
     </div>
-</div>
+
+    <script src="js/app.js"></script>
 </body>
-</html>
+                        </html>
