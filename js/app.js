@@ -3,7 +3,7 @@ let posts = JSON.parse(localStorage.getItem('routinyat-posts')) || [];
 let currentFilter = 'all';
 let selectedMedia = [];
 
-// نظام المنافسة الأسبوعية
+// نظام المنافسة
 let weeklyCompetition = {
     active: true,
     theme: "روتين العناية الصباحي",
@@ -11,8 +11,23 @@ let weeklyCompetition = {
     participants: []
 };
 
+// دالة التصفية - مهمة!
+function filterPosts(filter) {
+    console.log('جاري تصفية:', filter);
+    currentFilter = filter;
+    
+    // تحديث الأزرار النشطة
+    document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    displayPosts();
+}
+
 // عرض المنشورات
 function displayPosts() {
+    console.log('عرض المنشورات، الفلتر:', currentFilter);
     const postsGrid = document.getElementById('postsGrid');
     let filteredPosts = posts;
 
@@ -22,17 +37,22 @@ function displayPosts() {
     } else if (currentFilter === 'evening') {
         filteredPosts = posts.filter(post => post.theme === 'evening');
     } else if (currentFilter === 'popular') {
-        filteredPosts = posts.filter(post => post.votes > 2);
+        filteredPosts = posts.filter(post => post.votes > 0);
     } else if (currentFilter === 'weekly') {
         filteredPosts = posts.filter(post => post.inCompetition);
     }
+
+    console.log('المنشورات المصفاة:', filteredPosts);
 
     if (filteredPosts.length === 0) {
         postsGrid.innerHTML = `
             <div class="no-posts">
                 <i class="fas fa-feather"></i>
-                <h3>لا توجد منشورات بعد</h3>
-                <p>كوني أول من يشارك روتينها اليومي!</p>
+                <h3>لا توجد منشورات</h3>
+                <p>${currentFilter === 'all' ? 'لا توجد منشورات بعد' : 
+                   currentFilter === 'morning' ? 'لا توجد منشورات صباحية' :
+                   currentFilter === 'evening' ? 'لا توجد منشورات مسائية' :
+                   'لا توجد منشورات في المنافسة'}</p>
                 <button class="btn-primary" onclick="showPostForm()" style="margin-top: 1rem;">
                     <i class="fas fa-plus"></i>
                     ابدئي بمشاركة روتينك
@@ -80,60 +100,33 @@ function displayPosts() {
     `).join('');
 }
 
-// التصويت على منشور
+// التصويت
 function votePost(postId) {
     const post = posts.find(p => p.id === postId);
     if (post) {
         post.votes = (post.votes || 0) + 1;
-        
-        // إذا كان في المنافسة، تحديث المتصدرين
-        if (post.inCompetition) {
-            updateCompetitionLeaderboard();
-        }
-        
         savePosts();
         displayPosts();
         
         // تأثير التصويت
         const btn = event.target.closest('.vote-btn');
         btn.classList.add('voted');
-        setTimeout(() => {
-            btn.classList.remove('voted');
-        }, 1000);
-        
-        // منح نقاط للمستخدم
-        addUserPoints(1);
+        setTimeout(() => btn.classList.remove('voted'), 1000);
     }
 }
 
-// إضافة نقاط للمستخدم
-function addUserPoints(points) {
-    let userPoints = parseInt(localStorage.getItem('userPoints')) || 0;
-    userPoints += points;
-    localStorage.setItem('userPoints', userPoints);
-    updateUserPointsDisplay();
+// إظهار نموذج المنشور
+function showPostForm() {
+    console.log('فتح نموذج المنشور');
+    document.getElementById('postModal').style.display = 'flex';
 }
 
-// تحديث عرض النقاط
-function updateUserPointsDisplay() {
-    const pointsElement = document.querySelector('.user-points .points');
-    if (pointsElement) {
-        const points = localStorage.getItem('userPoints') || '0';
-        pointsElement.textContent = parseInt(points).toLocaleString();
-    }
-}
-
-// تصفية المنشورات
-function filterPosts(filter) {
-    currentFilter = filter;
-    
-    // تحديث أزرار الفلتر
-    document.querySelectorAll('.filter-tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    
-    displayPosts();
+// إخفاء النموذج
+function hidePostForm() {
+    document.getElementById('postModal').style.display = 'none';
+    document.getElementById('postForm').reset();
+    document.getElementById('mediaPreview').innerHTML = '';
+    selectedMedia = [];
 }
 
 // إعداد رفع الوسائط
@@ -142,88 +135,54 @@ function setupMediaUpload() {
     const fileInput = document.getElementById('mediaFiles');
     const mediaPreview = document.getElementById('mediaPreview');
 
-    uploadArea.addEventListener('click', () => fileInput.click());
-    
-    uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploadArea.style.borderColor = '#ec4899';
-        uploadArea.style.background = '#fdf2f8';
-    });
-    
-    uploadArea.addEventListener('dragleave', () => {
-        uploadArea.style.borderColor = '#e5e7eb';
-        uploadArea.style.background = '#f8fafc';
-    });
-    
-    uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        handleFiles(e.dataTransfer.files);
+    uploadArea.addEventListener('click', () => {
+        console.log('نقر على منطقة الرفع');
+        fileInput.click();
     });
     
     fileInput.addEventListener('change', (e) => {
-        handleFiles(e.target.files);
-    });
-}
-
-// معالجة الملفات
-function handleFiles(files) {
-    selectedMedia = [];
-    const mediaPreview = document.getElementById('mediaPreview');
-    mediaPreview.innerHTML = '';
-    
-    Array.from(files).forEach(file => {
-        if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
+        console.log('تم اختيار ملف:', e.target.files);
+        if (e.target.files.length > 0) {
+            const file = e.target.files[0];
             const reader = new FileReader();
+            
             reader.onload = function(e) {
-                selectedMedia.push({
-                    type: file.type.startsWith('image/') ? 'image' : 'video',
+                mediaPreview.innerHTML = `
+                    <img src="${e.target.result}" style="max-width: 100%; border-radius: 10px; margin-top: 1rem;">
+                `;
+                selectedMedia = [{
+                    type: 'image',
                     url: e.target.result,
                     file: file
-                });
-                
-                const mediaItem = document.createElement('div');
-                if (file.type.startsWith('image/')) {
-                    mediaItem.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
-                } else {
-                    mediaItem.innerHTML = `<video src="${e.target.result}" controls></video>`;
-                }
-                mediaPreview.appendChild(mediaItem);
+                }];
+                console.log('تم تحميل الصورة');
             };
             reader.readAsDataURL(file);
         }
     });
 }
 
-// إظهار نموذج المنشور
-function showPostForm() {
-    document.getElementById('postModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-// إخفاء النموذج
-function hidePostForm() {
-    document.getElementById('postModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-    document.getElementById('postForm').reset();
-    document.getElementById('mediaPreview').innerHTML = '';
-    selectedMedia = [];
-}
-
 // إضافة منشور جديد
 document.getElementById('postForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    console.log('محاولة إضافة منشور');
     
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
-    const theme = document.querySelector('input[name="theme"]:checked').value;
+    const theme = document.querySelector('input[name="theme"]:checked');
     const joinCompetition = document.getElementById('joinCompetition').checked;
+    
+    if (!theme) {
+        alert('الرجاء اختيار نوع الروتين (صباحي أو مسائي)');
+        return;
+    }
     
     const newPost = {
         id: Date.now(),
         title,
         content,
-        theme,
-        media: [...selectedMedia],
+        theme: theme.value,
+        media: selectedMedia,
         votes: 0,
         author: getRandomFemaleName(),
         date: new Date().toLocaleDateString('ar-AR'),
@@ -232,101 +191,17 @@ document.getElementById('postForm').addEventListener('submit', function(e) {
     };
     
     posts.unshift(newPost);
-    
-    // إذا انضمت للمنافسة
-    if (joinCompetition) {
-        weeklyCompetition.participants.push(newPost.id);
-        updateCompetitionLeaderboard();
-    }
-    
     savePosts();
     displayPosts();
     hidePostForm();
-    
-    // منح نقاط للنشر
-    addUserPoints(10);
     
     alert('🎉 تم نشر روتينك بنجاح!');
 });
 
 // أسماء عشوائية
 function getRandomFemaleName() {
-    const names = ['سارة', 'فاطمة', 'مريم', 'هدى', 'نور', 'لينا', 'ياسمين', 'ريم', 'أمينة', 'زينب'];
+    const names = ['سارة', 'فاطمة', 'مريم', 'هدى', 'نور', 'لينا', 'ياسمين', 'ريم'];
     return names[Math.floor(Math.random() * names.length)];
-}
-
-// تحديث متصدرين المنافسة
-function updateCompetitionLeaderboard() {
-    const competitionPosts = posts.filter(post => post.inCompetition)
-                                 .sort((a, b) => (b.votes || 0) - (a.votes || 0))
-                                 .slice(0, 3);
-    
-    const leadersBoard = document.querySelector('.leaders-board');
-    if (leadersBoard) {
-        leadersBoard.innerHTML = competitionPosts.map((post, index) => `
-            <div class="leader">
-                <img src="https://via.placeholder.com/40/ec4899/ffffff?text=${post.author.charAt(0)}" alt="${post.author}">
-                <span>${post.author}</span>
-                <span class="votes">${post.votes || 0} صوت</span>
-            </div>
-        `).join('');
-    }
-}
-
-// تحديث مؤقت المنافسة
-function updateCompetitionTimer() {
-    const now = new Date();
-    const timeLeft = weeklyCompetition.endDate - now;
-    
-    if (timeLeft <= 0) {
-        endCompetition();
-        return;
-    }
-    
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    
-    const timerElement = document.getElementById('competitionTimer');
-    if (timerElement) {
-        timerElement.textContent = `${days} أيام و ${hours} ساعة متبقية`;
-    }
-}
-
-// إنهاء المنافسة
-function endCompetition() {
-    const winner = posts.filter(post => post.inCompetition)
-                       .sort((a, b) => (b.votes || 0) - (a.votes || 0))[0];
-    
-    if (winner) {
-        alert(`🎉 مبروك! ${winner.author} فازت بمنافسة هذا الأسبوع!`);
-    }
-    
-    // إعادة تعيين المنافسة
-    resetCompetition();
-}
-
-// إعادة تعيين المنافسة
-function resetCompetition() {
-    weeklyCompetition.endDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-    weeklyCompetition.participants = [];
-    
-    // تغيير الموضوع
-    const themes = [
-        "روتين العناية الصباحي",
-        "روتين الاسترخاء المسائي", 
-        "روتين الرياضة اليومي",
-        "روتين الطهي الصحي",
-        "روتين العناية بالبشرة"
-    ];
-    weeklyCompetition.theme = themes[Math.floor(Math.random() * themes.length)];
-    
-    // تحديث الواجهة
-    const themeElement = document.querySelector('.weekly-theme h3');
-    if (themeElement) {
-        themeElement.textContent = `موضوع هذا الأسبوع: "${weeklyCompetition.theme}"`;
-    }
-    
-    updateCompetitionTimer();
 }
 
 // حفظ البيانات
@@ -336,26 +211,23 @@ function savePosts() {
 
 // التهيئة
 document.addEventListener('DOMContentLoaded', function() {
-    displayPosts();
-    updateUserPointsDisplay();
-    updateCompetitionLeaderboard();
-    updateCompetitionTimer();
-    setupMediaUpload();
+    console.log('تم تحميل الصفحة');
     
-    // إغلاق المودال بالنقر خارجيه
+    // إعداد الأحداث
+    setupMediaUpload();
+    displayPosts();
+    
+    // إغلاق المودال
     document.getElementById('postModal').addEventListener('click', function(e) {
         if (e.target === this) {
             hidePostForm();
         }
     });
     
-    // تحديث المؤقت كل دقيقة
-    setInterval(updateCompetitionTimer, 60000);
+    // منع إغلاق المودال عند النقر داخله
+    document.querySelector('.modal-content').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
     
-    // تحديث المنافسة كل أسبوع
-    setInterval(() => {
-        if (weeklyCompetition.endDate - new Date() <= 0) {
-            endCompetition();
-        }
-    }, 60000);
+    console.log('التهيئة اكتملت');
 });
