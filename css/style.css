@@ -185,25 +185,7 @@ body {
     50% { opacity: 1; transform: scale(1.2); }
 }
 
-.app-logo h1 {
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8rem;
-    font-weight: 800;
-}
 
-/* باقي الكود يبقى كما هو */
-/* ... */
-/* باقي الكود يبقى كما هو */
-/* ... */
-.app-logo h1 {
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.8rem;
-    font-weight: 800;
-}
 
 .nav-actions {
     display: flex;
