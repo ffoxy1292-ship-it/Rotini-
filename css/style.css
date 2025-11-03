@@ -17,16 +17,7 @@ body {
     padding: 0 20px;
 }
 /* الهيدر */
-.app-header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.8);
-}
+
 
 .nav {
     display: flex;
@@ -39,7 +30,11 @@ body {
 
 /* إضافة هذا الجزء - كان ناقص */
 
-
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 /* كود اللوغو الجديد - سيدة اليوجا من التصميم الثاني */
 .logo-icon {
     width: 50px;
