@@ -2,9 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>سحري وردي - روتينيات</title>
+    <title>سيدة الروتين - روتينيات</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
         
         body {
             background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
@@ -16,119 +16,68 @@
         
         .logo-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 3rem;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 3rem auto;
         }
         
         .logo-option {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(25px);
-            padding: 3.5rem 2rem;
-            border-radius: 35px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 3rem 2rem;
+            border-radius: 30px;
             box-shadow: 
                 0 25px 60px rgba(236, 72, 153, 0.2),
-                0 15px 35px rgba(219, 39, 119, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.5s ease;
             position: relative;
             overflow: hidden;
         }
         
-        .logo-option::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(236, 72, 153, 0.05) 0%, 
-                rgba(219, 39, 119, 0.03) 50%, 
-                rgba(244, 114, 182, 0.08) 100%);
-            z-index: -1;
-        }
-        
-        .logo-option:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 
-                0 40px 80px rgba(236, 72, 153, 0.3),
-                0 25px 60px rgba(219, 39, 119, 0.25),
-                0 0 0 1px rgba(255, 255, 255, 0.9);
-        }
-        
         .logo-preview {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 3rem;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 40px;
             position: relative;
             background: linear-gradient(135deg, 
-                #ec4899 0%, 
-                #db2777 30%, 
-                #f472b6 70%, 
+                #fdf2f8 0%, 
+                #fce7f3 30%, 
+                #fbcfe8 60%, 
                 #f9a8d4 100%);
             box-shadow: 
-                0 20px 50px rgba(236, 72, 153, 0.4),
-                0 10px 30px rgba(219, 39, 119, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -1px 0 rgba(190, 24, 93, 0.2);
-        }
-        
-        .logo-preview::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.3) 0%, 
-                transparent 30%, 
-                rgba(255, 255, 255, 0.2) 70%, 
-                transparent 100%);
-            border-radius: 45px;
-            animation: sparkle 3s ease-in-out infinite;
-            z-index: -1;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.02); }
+                0 20px 50px rgba(236, 72, 153, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
         
         .logo-name {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin: 2rem 0 1rem;
-            background: linear-gradient(135deg, 
-                #ec4899 0%, 
-                #db2777 30%, 
-                #be185d 100%);
+            margin: 1.5rem 0 0.8rem;
+            background: linear-gradient(135deg, #ec4899, #db2777, #be185d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Dancing Script', cursive;
-            letter-spacing: -0.5px;
         }
         
         .logo-desc {
             color: #9d174d;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
             font-weight: 500;
             opacity: 0.8;
+            max-width: 300px;
+            margin: 0 auto;
         }
         
         .magic-badge {
             display: inline-block;
-            background: linear-gradient(135deg, 
-                rgba(236, 72, 153, 0.9), 
-                rgba(219, 39, 119, 0.8));
+            background: linear-gradient(135deg, #ec4899, #db2777);
             color: white;
             padding: 0.6rem 1.5rem;
             border-radius: 25px;
@@ -136,211 +85,202 @@
             font-weight: 600;
             margin-top: 1.5rem;
             box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        
-        .floating-sparkle {
+
+        /* حركات النجوم */
+        .floating-element {
             position: absolute;
             font-size: 1.2rem;
             opacity: 0;
-            animation: floatAround 4s ease-in-out infinite;
+            animation: floatMagic 4s ease-in-out infinite;
         }
         
-        @keyframes floatAround {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.7; }
-            100% { transform: translate(100px, -100px) rotate(180deg); opacity: 0; }
+        @keyframes floatMagic {
+            0% { transform: translate(0, 0) rotate(0deg) scale(0.8); opacity: 0; }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { transform: translate(80px, -80px) rotate(180deg) scale(0.8); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <h1 style="color: #9d174d; font-size: 3rem; margin-bottom: 1rem; font-weight: 700; font-family: 'Dancing Script', cursive;">سحري وردي ✨</h1>
-    <p style="color: #be185d; font-size: 1.3rem; max-width: 600px; margin: 0 auto 4rem; line-height: 1.6; opacity: 0.8;">تصاميم سحرية ووردية تناسب عالم الأحلام</p>
+    <h1 style="color: #9d174d; font-size: 2.8rem; margin-bottom: 1rem; font-family: 'Dancing Script', cursive;">سيدة الروتين السحري ✨</h1>
+    <p style="color: #be185d; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">امرأة تخلق السحر من روتينها اليومي</p>
     
     <div class="logo-container">
         
-        <!-- الشعار 1: وردة سحرية -->
+        <!-- التصميم 1: سيدة تسقي الزهور -->
         <div class="logo-option">
-            <div class="floating-sparkle" style="top: 20%; left: 15%; animation-delay: 0s;">✨</div>
-            <div class="floating-sparkle" style="top: 60%; left: 80%; animation-delay: 1s;">⭐</div>
+            <div class="floating-element" style="top: 20%; left: 15%; animation-delay: 0s;">🌸</div>
+            <div class="floating-element" style="top: 60%; left: 80%; animation-delay: 1s;">✨</div>
             <div class="logo-preview">
-                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
                     <defs>
-                        <linearGradient id="magicRose" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
-                            <stop offset="50%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
-                            <stop offset="100%" style="stop-color:#FCE7F3;stop-opacity:0.85" />
-                        </linearGradient>
-                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-                            <feMerge>
-                                <feMergeNode in="blur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                    </defs>
-                    
-                    <!-- الوردة السحرية -->
-                    <path d="M45,15 C50,10 60,15 63,25 C66,35 58,45 52,52 C46,59 40,65 45,72 C50,65 44,59 38,52 C32,45 24,35 27,25 C30,15 40,10 45,15 Z" 
-                          fill="url(#magicRose)" filter="url(#glow)" opacity="0.98"/>
-                    
-                    <!-- قلب الوردة المتلألئ -->
-                    <circle cx="45" cy="45" r="12" fill="#FDF2F8" opacity="0.9">
-                        <animate attributeName="r" values="12;14;12" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    
-                    <!-- ندى سحري -->
-                    <circle cx="35" cy="35" r="3" fill="white" opacity="0.8">
-                        <animate attributeName="cy" values="35;33;35" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="55" cy="40" r="2" fill="white" opacity="0.6">
-                        <animate attributeName="cy" values="40;38;40" dur="1.8s" repeatCount="indefinite"/>
-                    </circle>
-                </svg>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">وردة سحرية تتلألأ بأنوار وردية</p>
-            <div class="magic-badge">سحري وبراق</div>
-        </div>
-
-        <!-- الشعار 2: فراشة الأحلام -->
-        <div class="logo-option">
-            <div class="floating-sparkle" style="top: 30%; left: 20%; animation-delay: 0.5s;">💫</div>
-            <div class="floating-sparkle" style="top: 70%; left: 70%; animation-delay: 1.5s;">🌟</div>
-            <div class="logo-preview">
-                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                    <defs>
-                        <linearGradient id="dreamButterfly" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.9" />
-                            <stop offset="100%" style="stop-color:#FAF5FF;stop-opacity:0.8" />
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- فراشة الأحلام -->
-                    <path d="M25,40 Q45,20 65,40 Q55,60 45,70 Q35,60 25,40 Z" 
-                          fill="url(#dreamButterfly)" opacity="0.95"/>
-                    
-                    <!-- جسم الفراشة -->
-                    <ellipse cx="45" cy="50" rx="3" ry="12" fill="#FDF2F8" opacity="0.9"/>
-                    
-                    <!-- أجنحة سحرية -->
-                    <circle cx="35" cy="35" r="8" fill="#F472B6" opacity="0.7">
-                        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="55" cy="35" r="8" fill="#F472B6" opacity="0.7">
-                        <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2s" repeatCount="indefinite" begin="0.5s"/>
-                    </circle>
-                    
-                    <!-- غبار سحري -->
-                    <circle cx="30" cy="45" r="2" fill="white" opacity="0.8">
-                        <animate attributeName="r" values="2;3;2" dur="1s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="60" cy="45" r="2" fill="white" opacity="0.8">
-                        <animate attributeName="r" values="2;3;2" dur="1s" repeatCount="indefinite" begin="0.3s"/>
-                    </circle>
-                </svg>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">فراشة من عالم الأحلام والأنوار</p>
-            <div class="magic-badge">حلم وردي</div>
-        </div>
-
-        <!-- الشعار 3: تاج الأميرة -->
-        <div class="logo-option">
-            <div class="floating-sparkle" style="top: 25%; left: 75%; animation-delay: 0.8s;">💖</div>
-            <div class="floating-sparkle" style="top: 65%; left: 25%; animation-delay: 2s;">🦄</div>
-            <div class="logo-preview">
-                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                    <defs>
-                        <linearGradient id="princessCrown" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <linearGradient id="ladyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
                             <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
                         </linearGradient>
                     </defs>
                     
-                    <!-- تاج الأميرة -->
-                    <path d="M25,50 L32,35 L38,40 L45,30 L52,40 L58,35 L65,50 L58,55 L52,60 L38,60 L32,55 Z" 
-                          fill="url(#princessCrown)" opacity="0.95"/>
+                    <!-- جسم السيدة -->
+                    <circle cx="60" cy="45" r="15" fill="url(#ladyGrad)"/>
                     
-                    <!-- جواهر تتلألأ -->
-                    <circle cx="45" cy="35" r="6" fill="#F472B6" opacity="0.9">
-                        <animate attributeName="r" values="6;7;6" dur="1.5s" repeatCount="indefinite"/>
-                    </circle>
-                    <circle cx="35" cy="45" r="5" fill="#F9A8D4" opacity="0.8">
-                        <animate attributeName="r" values="5;6;5" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
-                    </circle>
-                    <circle cx="55" cy="45" r="5" fill="#F9A8D4" opacity="0.8">
-                        <animate attributeName="r" values="5;6;5" dur="1.5s" repeatCount="indefinite" begin="0.6s"/>
-                    </circle>
+                    <!-- التنورة -->
+                    <path d="M45,60 Q60,80 75,60 Q70,75 60,85 Q50,75 45,60 Z" fill="url(#ladyGrad)"/>
                     
-                    <!-- لمعان التاج -->
-                    <path d="M40,32 L45,28 L50,32" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
-                </svg>
-            </div>
-            <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">تاج أميرة يتلألأ بأنوار وردية</p>
-            <div class="magic-badge">ملكي سحري</div>
-        </div>
-
-        <!-- الشعار 4: قلب الغيوم -->
-        <div class="logo-option">
-            <div class="floating-sparkle" style="top: 40%; left: 10%; animation-delay: 1.2s;">🌙</div>
-            <div class="floating-sparkle" style="top: 80%; left: 60%; animation-delay: 2.5s;">☁️</div>
-            <div class="logo-preview">
-                <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-                    <defs>
-                        <linearGradient id="cloudHeart" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.98" />
-                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.92" />
-                        </linearGradient>
-                    </defs>
+                    <!-- اليدان -->
+                    <path d="M40,50 L30,40" stroke="url(#ladyGrad)" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M80,50 L90,40" stroke="url(#ladyGrad)" stroke-width="4" stroke-linecap="round"/>
                     
-                    <!-- قلب الغيوم -->
-                    <path d="M30,35 Q45,20 60,35 Q65,45 60,55 Q45,70 45,70 Q45,70 30,55 Q25,45 30,35 Z" 
-                          fill="url(#cloudHeart)" opacity="0.96"/>
+                    <!-- إبريق الري -->
+                    <path d="M30,35 L35,30 L40,35 L40,45 L30,45 Z" fill="#F9A8D4"/>
                     
-                    <!-- غيوم صغيرة -->
-                    <circle cx="35" cy="40" r="8" fill="white" opacity="0.9">
-                        <animate attributeName="cx" values="35;37;35" dur="2s" repeatCount="indefinite"/>
+                    <!-- قطرات ماء -->
+                    <circle cx="35" cy="30" r="2" fill="#3B82F6" opacity="0.8">
+                        <animate attributeName="cy" values="30;35;30" dur="1.5s" repeatCount="indefinite"/>
                     </circle>
-                    <circle cx="55" cy="40" r="8" fill="white" opacity="0.9">
-                        <animate attributeName="cx" values="55;53;55" dur="2s" repeatCount="indefinite"/>
+                    <circle cx="38" cy="28" r="1.5" fill="#3B82F6" opacity="0.6">
+                        <animate attributeName="cy" values="28;33;28" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
                     </circle>
                     
-                    <!-- نجوم صغيرة -->
-                    <path d="M40,50 L42,47 L45,50 L42,53 Z" fill="#F9A8D4" opacity="0.7">
+                    <!-- زهور تظهر -->
+                    <circle cx="50" cy="70" r="4" fill="#EC4899">
+                        <animate attributeName="r" values="4;5;4" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="70" cy="65" r="3" fill="#F472B6">
+                        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                    </circle>
+                    
+                    <!-- نجوم حولها -->
+                    <path d="M25,60 L27,57 L29,60 L27,63 Z" fill="#F59E0B" opacity="0.7">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite"/>
                     </path>
-                    <path d="M50,55 L52,52 L55,55 L52,58 Z" fill="#F9A8D4" opacity="0.7">
+                    <path d="M95,50 L97,47 L99,50 L97,53 Z" fill="#F59E0B" opacity="0.7">
                         <animate attributeName="opacity" values="0.7;1;0.7" dur="1s" repeatCount="indefinite" begin="0.5s"/>
                     </path>
                 </svg>
             </div>
             <div class="logo-name">Routiniat</div>
-            <p class="logo-desc">قلب من الغيوم والأنوار الوردية</p>
-            <div class="magic-badge">ناعم وسحري</div>
+            <p class="logo-desc">سيدة تسقي الزهور، تخلق الجمال من روتينها اليومي</p>
+            <div class="magic-badge">جمال وروتين</div>
+        </div>
+
+        <!-- التصميم 2: سيدة تقرأ كتاب -->
+        <div class="logo-option">
+            <div class="floating-element" style="top: 30%; left: 20%; animation-delay: 0.5s;">📖</div>
+            <div class="floating-element" style="top: 70%; left: 70%; animation-delay: 1.5s;">⭐</div>
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                    <defs>
+                        <linearGradient id="readerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- جسم السيدة -->
+                    <circle cx="60" cy="45" r="15" fill="url(#readerGrad)"/>
+                    
+                    <!-- الجلوس -->
+                    <path d="M45,60 Q60,75 75,60 L75,80 L45,80 Z" fill="url(#readerGrad)"/>
+                    
+                    <!-- الكتاب -->
+                    <rect x="65" y="50" width="20" height="25" rx="3" fill="#F9A8D4"/>
+                    <line x1="65" y1="55" x2="85" y2="55" stroke="white" stroke-width="1"/>
+                    <line x1="65" y1="60" x2="85" y2="60" stroke="white" stroke-width="1"/>
+                    <line x1="65" y1="65" x2="85" y2="65" stroke="white" stroke-width="1"/>
+                    
+                    <!-- كلمات تطفو من الكتاب -->
+                    <path d="M80,45 L82,42 L84,45 L82,48 Z" fill="#8B5CF6" opacity="0.7">
+                        <animate attributeName="y" values="45;40;45" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M75,42 L77,39 L79,42 L77,45 Z" fill="#EC4899" opacity="0.7">
+                        <animate attributeName="y" values="42;37;42" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+                    </path>
+                    <path d="M85,48 L87,45 L89,48 L87,51 Z" fill="#F59E0B" opacity="0.7">
+                        <animate attributeName="y" values="48;43;48" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                    </path>
+                    
+                    <!-- فنجان شاي -->
+                    <path d="M40,55 L45,50 L50,55 L50,60 L40,60 Z" fill="#F59E0B"/>
+                    <path d="M45,50 L47,48 L49,50" stroke="#F59E0B" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">سيدة تقرأ بجانب فنجان شاي، روتين المعرفة والاسترخاء</p>
+            <div class="magic-badge">قراءة واسترخاء</div>
+        </div>
+
+        <!-- التصميم 3: سيدة تمارس اليوجا -->
+        <div class="logo-option">
+            <div class="floating-element" style="top: 25%; left: 75%; animation-delay: 0.8s;">🪷</div>
+            <div class="floating-element" style="top: 65%; left: 25%; animation-delay: 2s;">🎀</div>
+            <div class="logo-preview">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                    <defs>
+                        <linearGradient id="yogaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.95" />
+                            <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:0.9" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- رأس السيدة -->
+                    <circle cx="60" cy="35" r="12" fill="url(#yogaGrad)"/>
+                    
+                    <!-- وضعية اليوجا -->
+                    <path d="M60,47 Q45,60 60,75 Q75,60 60,47 Z" fill="url(#yogaGrad)" opacity="0.9"/>
+                    
+                    <!-- اليدان -->
+                    <path d="M48,55 L40,50" stroke="url(#yogaGrad)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M72,55 L80,50" stroke="url(#yogaGrad)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- طاقة تخرج منها -->
+                    <circle cx="60" cy="35" r="8" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.6">
+                        <animate attributeName="r" values="8;15;8" dur="2s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    
+                    <!-- زهور لوتس -->
+                    <path d="M35,40 Q38,35 41,40 Q38,45 35,40 Z" fill="#F472B6" opacity="0.8">
+                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M85,45 Q88,40 91,45 Q88,50 85,45 Z" fill="#F472B6" opacity="0.8">
+                        <animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+                    </path>
+                    
+                    <!-- نجوم الطاقة -->
+                    <path d="M50,30 L52,27 L54,30 L52,33 Z" fill="#F59E0B">
+                        <animate attributeName="y" values="30;28;30" dur="1s" repeatCount="indefinite"/>
+                    </path>
+                    <path d="M70,32 L72,29 L74,32 L72,35 Z" fill="#F59E0B">
+                        <animate attributeName="y" values="32;30;32" dur="1s" repeatCount="indefinite" begin="0.3s"/>
+                    </path>
+                </svg>
+            </div>
+            <div class="logo-name">Routiniat</div>
+            <p class="logo-desc">سيدة تمارس اليوجا، روتين السلام الداخلي والطاقة</p>
+            <div class="magic-badge">طاقة وسلام</div>
         </div>
 
     </div>
 
     <script>
-        // إضافة المزيد من النجوم العائمة
+        // إضافة عناصر عائمة
         document.addEventListener('DOMContentLoaded', function() {
-            const sparkles = ['✨', '⭐', '💫', '🌟', '💖', '🌙', '☁️', '🦄'];
+            const elements = ['✨', '⭐', '🎀', '🪷', '🌸', '📖', '🧘‍♀️', '💖'];
             const containers = document.querySelectorAll('.logo-option');
             
             containers.forEach(container => {
                 for (let i = 0; i < 4; i++) {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'floating-sparkle';
-                    sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
-                    sparkle.style.top = Math.random() * 80 + 10 + '%';
-                    sparkle.style.left = Math.random() * 80 + 10 + '%';
-                    sparkle.style.animationDelay = Math.random() * 3 + 's';
-                    container.appendChild(sparkle);
+                    const element = document.createElement('div');
+                    element.className = 'floating-element';
+                    element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                    element.style.top = Math.random() * 80 + 10 + '%';
+                    element.style.left = Math.random() * 80 + 10 + '%';
+                    element.style.animationDelay = Math.random() * 3 + 's';
+                    container.appendChild(element);
                 }
             });
         });
     </script>
 </body>
-</html>
+    </html>
