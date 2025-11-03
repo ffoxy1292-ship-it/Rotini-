@@ -53,9 +53,10 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
 }
 
-.yoga-woman {
+.yoga-logo {
     width: 30px;
     height: 40px;
     position: relative;
