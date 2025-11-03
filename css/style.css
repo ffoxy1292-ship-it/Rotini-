@@ -44,6 +44,7 @@ body {
     gap: 12px;
 }
 
+/* كود اللوغو الجديد - سيدة اليوجا */
 .logo-icon {
     width: 45px;
     height: 45px;
@@ -56,15 +57,11 @@ body {
     overflow: hidden;
 }
 
-/* ثم كود اليوجا الذي لديك */
 .yoga-logo {
     width: 30px;
     height: 35px;
     position: relative;
 }
-
-
-
 
 .yoga-logo .head {
     width: 8px;
@@ -122,6 +119,22 @@ body {
     50% { transform: scale(1.1); opacity: 0.6; }
 }
 
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app-logo h1 {
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+/* باقي الكود يبقى كما هو */
+/* ... */
 .app-logo h1 {
     background: linear-gradient(135deg, #ec4899, #8b5cf6);
     -webkit-background-clip: text;
