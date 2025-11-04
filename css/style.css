@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+    background: linear-gradient(135deg, #fde8f0 0%, #fbcfe8 50%, #fcd5e0 100%);
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
@@ -137,19 +137,17 @@ body {
     transform: rotate(15deg);
 }
 
-/* هالة الطاقة */
 .yoga-logo .energy {
     width: 45px;
     height: 45px;
-    border: 2px solid #ec4899;
+    border: 2px solid rgba(244, 114, 182, 0.4);
     border-radius: 50%;
     position: absolute;
     top: 0px;
     left: -5px;
     opacity: 0.4;
-    animation: pulse 3s ease-in-out infinite;
+    animation: pulse 3s ease-in-out infinite alternate;
 }
-
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.3; }
     50% { transform: scale(1.1); opacity: 0.6; }
@@ -170,7 +168,7 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    background: linear-gradient(135deg, #f472b6, #d946ef);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -296,13 +294,12 @@ body {
 }
 
 .competition-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 228, 238, 0.1);
+    backdrop-filter: blur(8px);
     border-radius: 20px;
     padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 228, 238, 0.2);
 }
-
 .competition-header {
     display: flex;
     justify-content: space-between;
