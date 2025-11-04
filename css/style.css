@@ -18,17 +18,61 @@ body {
     padding: 0 20px;
 }
 
-/* الهيدر */
+/* هيدر طبيعي أكثر، أقل AI */
 .app-header {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.92); /* أقل شفافية، طبيعي */
+    backdrop-filter: blur(14px); /* blur أقل قليلاً، يعطي إحساس يدوي */
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08), 0 4px 15px rgba(0,0,0,0.05); /* ظل متعدد الطبقات يعطي لمسة بشرية */
+    border-bottom: 1px solid rgba(255,255,255,0.6); /* أقل مثالية */
 }
+
+/* زر رئيسي طبيعي أكثر */
+.btn-primary {
+    background: linear-gradient(135deg, #f472b6, #d946ef); /* وردي-بنفسجي أقل صراحة */
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* تأثير hover للزر بإحساس يدوي */
+.btn-primary:hover {
+    transform: translateY(-2px) rotate(-0.5deg); /* إضافة دوران طفيف، طبيعي */
+    box-shadow: 0 8px 20px rgba(244, 114, 182, 0.2), 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* زر ثانوي */
+.btn-secondary {
+    background: white;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* تأثير hover طبيعي */
+.btn-secondary:hover {
+    background: #fef2f6; /* لون خلفية خفيف وردي */
+    border-color: #fcd5e0; /* لون أقل مثالية */
+}
+
+/* اللوجو والـ halo (محافظ على الشكل الأصلي مع لمسة طبيعية) */
 
 .nav {
     display: flex;
