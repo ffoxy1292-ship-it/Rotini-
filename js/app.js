@@ -46,7 +46,7 @@ function loadPosts() {
             theme: "morning",
             author: "سارة",
             votes: 1245,
-            date: "2024-01-15",
+            date: "2025-10-15",
             inCompetition: true
         },
         {
@@ -56,7 +56,7 @@ function loadPosts() {
             theme: "evening",
             author: "فاطمة",
             votes: 1120,
-            date: "2024-01-14",
+            date: "2025-11-04",
             inCompetition: true
         },
         {
@@ -66,7 +66,7 @@ function loadPosts() {
             theme: "morning",
             author: "نور",
             votes: 980,
-            date: "2024-01-13",
+            date: "2025-11-05",
             inCompetition: true
         }
     ];
