@@ -1,3 +1,10 @@
+// تكوين Supabase - ضعي معلوماتك هنا
+const SUPABASE_URL = 'https://aqubnqhjqpppmjjckbet.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxdWJucWhqcXBwcG1qamNrYmV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1Nzc3MzksImV4cCI6MjA3ODE1MzczOX0.JdZzOM4U44ppNewcNJjFtxlDQAIrt_HXHLWW831hz6I'; // ضعي الAPI Key الحقيقي
+
+// إنشاء عميل Supabase
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
 // حالة التطبيق
 let currentUser = null;
 let posts = [];
@@ -11,10 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // التحقق من حالة التسجيل
-function checkAuthStatus() {
-    const savedUser = localStorage.getItem('currentUser');
-    if (savedUser) {
-        currentUser = JSON.parse(savedUser);
+async function checkAuthStatus() {
+    const { data: { user }, error } = await supabase.auth.getUser();
+    
+    if (user && !error) {
+        currentUser = {
+            id: user.id,
+            email: user.email,
+            name: user.user_metadata?.name || 'مستخدم',
+            avatar: user.user_metadata?.avatar || 'https://via.placeholder.com/40/ec4899/ffffff?text=U'
+        };
         showUserProfile();
     } else {
         showAuthButtons();
@@ -35,9 +48,25 @@ function showUserProfile() {
     document.getElementById('userAvatar').src = currentUser.avatar;
 }
 
-// تحميل المنشورات
-function loadPosts() {
-    // منشورات تجريبية
+// تحميل المنشورات من قاعدة البيانات
+async function loadPosts() {
+    const { data, error } = await supabase
+        .from('posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (error) {
+        console.error('Error loading posts:', error);
+        // استخدام بيانات تجريبية في حالة الخطأ
+        loadSamplePosts();
+    } else {
+        posts = data || [];
+        renderPosts();
+    }
+}
+
+// بيانات تجريبية للطوارئ
+function loadSamplePosts() {
     posts = [
         {
             id: 1,
@@ -47,7 +76,7 @@ function loadPosts() {
             author: "سارة",
             votes: 1245,
             date: "2025-10-15",
-            inCompetition: true
+            in_competition: true
         },
         {
             id: 2,
@@ -57,20 +86,9 @@ function loadPosts() {
             author: "فاطمة",
             votes: 1120,
             date: "2025-11-04",
-            inCompetition: true
-        },
-        {
-            id: 3,
-            title: "روتين العناية بالشعر",
-            content: "كل يوم أربعاء أهتم بشعري باستخدام الزيوت الطبيعية والمساجات...",
-            theme: "morning",
-            author: "نور",
-            votes: 980,
-            date: "2025-11-05",
-            inCompetition: true
+            in_competition: true
         }
     ];
-    
     renderPosts();
 }
 
@@ -91,7 +109,7 @@ function renderPosts() {
     }
     
     postsGrid.innerHTML = filteredPosts.map(post => `
-        <div class="post-card ${post.inCompetition ? 'competition-post' : ''}">
+        <div class="post-card ${post.in_competition ? 'competition-post' : ''}">
             <div class="post-header">
                 <span class="post-theme ${post.theme}">
                     ${post.theme === 'morning' ? '🌞 صباحي' : '🌙 مسائي'}
@@ -137,14 +155,14 @@ function filterPostsByType(postsList, type) {
         case 'popular':
             return [...postsList].sort((a, b) => b.votes - a.votes);
         case 'weekly':
-            return postsList.filter(post => post.inCompetition);
+            return postsList.filter(post => post.in_competition);
         default:
             return postsList;
     }
 }
 
 // التصويت على منشور
-function votePost(postId) {
+async function votePost(postId) {
     if (!currentUser) {
         showLoginForm();
         return;
@@ -153,6 +171,18 @@ function votePost(postId) {
     const post = posts.find(p => p.id === postId);
     if (post) {
         post.votes++;
+        
+        // تحديث في قاعدة البيانات
+        const { error } = await supabase
+            .from('posts')
+            .update({ votes: post.votes })
+            .eq('id', postId);
+            
+        if (error) {
+            console.error('Error updating vote:', error);
+            post.votes--; // التراجع عن التصويت في حالة الخطأ
+        }
+        
         renderPosts();
     }
 }
@@ -212,29 +242,33 @@ function handleFiles(files) {
 }
 
 // تسجيل الدخول
-function handleLogin(e) {
+async function handleLogin(e) {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
     
-    // محاكاة تسجيل الدخول
-    currentUser = {
-        id: 1,
-        name: "مستخدم",
+    const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
-        avatar: "https://via.placeholder.com/40/ec4899/ffffff?text=U"
-    };
-    
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    showUserProfile();
-    hideLoginForm();
-    
-    // إظهار رسالة نجاح
-    alert('تم تسجيل الدخول بنجاح!');
+        password: password
+    });
+
+    if (error) {
+        alert('خطأ في تسجيل الدخول: ' + error.message);
+    } else {
+        currentUser = {
+            id: data.user.id,
+            email: data.user.email,
+            name: data.user.user_metadata?.name || 'مستخدم',
+            avatar: data.user.user_metadata?.avatar || 'https://via.placeholder.com/40/ec4899/ffffff?text=U'
+        };
+        showUserProfile();
+        hideLoginForm();
+        alert('تم تسجيل الدخول بنجاح!');
+    }
 }
 
 // إنشاء حساب
-function handleRegister(e) {
+async function handleRegister(e) {
     e.preventDefault();
     const name = document.getElementById('registerName').value;
     const email = document.getElementById('registerEmail').value;
@@ -246,24 +280,27 @@ function handleRegister(e) {
         return;
     }
     
-    // محاكاة إنشاء حساب
-    currentUser = {
-        id: 1,
-        name: name,
+    const { data, error } = await supabase.auth.signUp({
         email: email,
-        avatar: "https://via.placeholder.com/40/ec4899/ffffff?text=" + name.charAt(0)
-    };
-    
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
-    showUserProfile();
-    hideRegisterForm();
-    
-    // إظهار رسالة نجاح
-    alert('تم إنشاء الحساب بنجاح!');
+        password: password,
+        options: {
+            data: {
+                name: name,
+                avatar: `https://via.placeholder.com/40/ec4899/ffffff?text=${name.charAt(0)}`
+            }
+        }
+    });
+
+    if (error) {
+        alert('خطأ في إنشاء الحساب: ' + error.message);
+    } else {
+        alert('تم إنشاء الحساب بنجاح! يرجى التحقق من بريدك الإلكتروني.');
+        hideRegisterForm();
+    }
 }
 
 // نشر منشور
-function handlePostSubmit(e) {
+async function handlePostSubmit(e) {
     e.preventDefault();
     
     if (!currentUser) {
@@ -277,26 +314,35 @@ function handlePostSubmit(e) {
     const inCompetition = document.getElementById('joinCompetition').checked;
     
     const newPost = {
-        id: posts.length + 1,
         title: title,
         content: content,
         theme: theme,
         author: currentUser.name,
         votes: 0,
         date: new Date().toISOString().split('T')[0],
-        inCompetition: inCompetition
+        in_competition: inCompetition,
+        user_id: currentUser.id
     };
     
-    posts.unshift(newPost);
-    renderPosts();
-    hidePostForm();
-    
-    // إعادة تعيين النموذج
-    document.getElementById('postForm').reset();
-    document.getElementById('mediaPreview').innerHTML = '';
-    
-    // إظهار رسالة نجاح
-    alert('تم نشر المنشور بنجاح!');
+    // إدراج في قاعدة البيانات
+    const { data, error } = await supabase
+        .from('posts')
+        .insert([newPost])
+        .select();
+
+    if (error) {
+        alert('خطأ في نشر المنشور: ' + error.message);
+    } else {
+        posts.unshift(data[0]);
+        renderPosts();
+        hidePostForm();
+        
+        // إعادة تعيين النموذج
+        document.getElementById('postForm').reset();
+        document.getElementById('mediaPreview').innerHTML = '';
+        
+        alert('تم نشر المنشور بنجاح!');
+    }
 }
 
 // دوال إظهار/إخفاء النماذج
@@ -352,9 +398,9 @@ function showMyPosts() {
     document.getElementById('userMenu').classList.remove('show');
 }
 
-function logout() {
+async function logout() {
+    const { error } = await supabase.auth.signOut();
     currentUser = null;
-    localStorage.removeItem('currentUser');
     showAuthButtons();
     document.getElementById('userMenu').classList.remove('show');
     alert('تم تسجيل الخروج بنجاح!');
