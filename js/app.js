@@ -1,14 +1,23 @@
-// تكوين Supabase - بمعلوماتك الحقيقية
+//  ب لينك و  ابي اي تكوين تع  Supabase 
 const SUPABASE_URL = 'https://aqubnqhjqpppmjjckbet.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFxdWJucWhqcXBwcG1qamNrYmV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI1Nzc3MzksImV4cCI6MjA3ODE1MzczOX0.JdZzOM4U44ppNewcNJjFtxlDQAIrt_HXHLWW831hz6I';
 
-// إنشاء عميل Supabase
+// إنشاء عميل يسموها  Supabase
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// حالة التطبيق
+//   حالة التطبيق
 let currentUser = null;
 let posts = [];
 let currentFilter = 'all';
+
+//صور بروفايل افتراضية تع المستخدمين الافتراضين
+const DEFAULT_AVATARS = [
+    'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face',
+    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face'
+];
 
 // تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', function() {
@@ -22,12 +31,23 @@ async function checkAuthStatus() {
     const { data: { user }, error } = await supabase.auth.getUser();
     
     if (user && !error) {
+        // نجيبو من هنا بيانات البروفايل من قاعدة البيانات
+        const { data: profile, error: profileError } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
+
+        // استخدام صورة افتراضية عشوائية إذا لم يكن هناك صورة
+        const randomAvatar = DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)];
+        
         currentUser = {
             id: user.id,
             email: user.email,
-            name: user.user_metadata?.name || 'مستخدم',
-            avatar: user.user_metadata?.avatar || 'https://via.placeholder.com/40/ec4899/ffffff?text=U'
+            name: profile?.name || user.user_metadata?.name || 'مستخدم',
+            avatar: profile?.avatar || user.user_metadata?.avatar || randomAvatar
         };
+        
         showUserProfile();
     } else {
         showAuthButtons();
@@ -48,16 +68,19 @@ function showUserProfile() {
     document.getElementById('userAvatar').src = currentUser.avatar;
 }
 
-// تحميل المنشورات من قاعدة البيانات
+// تحميل  المنشورات من قاعدة البيانات
 async function loadPosts() {
     const { data, error } = await supabase
         .from('posts')
-        .select('*')
+        .select(`
+            *,
+            profiles (name, avatar)
+        `)
         .order('created_at', { ascending: false });
 
     if (error) {
         console.error('Error loading posts:', error);
-        // استخدام بيانات تجريبية في حالة الخطأ
+        // استخدام بيانات تجريبية في حالة الخطأ مثلا 
         loadSamplePosts();
     } else {
         posts = data || [];
@@ -74,9 +97,11 @@ function loadSamplePosts() {
             content: "أبدأ يومي بتنظيف البشرة ثم وضع سيروم فيتامين سي وكريم مرطب...",
             theme: "morning",
             author: "سارة",
+            author_avatar: DEFAULT_AVATARS[0],
             votes: 1245,
-            date: "2025-10-15",
-            in_competition: true
+            date: new Date().toISOString().split('T')[0],
+            in_competition: true,
+            image_data: "https://images.unsplash.com/photo-1558618666-fcd25856cd63?w=400&h=300&fit=crop"
         },
         {
             id: 2,
@@ -84,9 +109,11 @@ function loadSamplePosts() {
             content: "قبل النوم أستمتع بجلسة يوجا قصيرة ثم قراءة كتاب مع شاي الأعشاب...",
             theme: "evening",
             author: "فاطمة",
+            author_avatar: DEFAULT_AVATARS[1],
             votes: 1120,
-            date: "2025-11-04",
-            in_competition: true
+            date: new Date().toISOString().split('T')[0],
+            in_competition: true,
+            image_data: "https://images.unsplash.com/photo-1544365558-35aa4afcf11f?w=400&h=300&fit=crop"
         }
     ];
     renderPosts();
@@ -108,29 +135,46 @@ function renderPosts() {
         return;
     }
     
-    postsGrid.innerHTML = filteredPosts.map(post => `
+    postsGrid.innerHTML = filteredPosts.map(post => {
+        // استخدام صورة المؤلف الحقيقية أو افتراضية
+        const authorAvatar = post.profiles?.avatar || post.author_avatar || DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)];
+        const authorName = post.profiles?.name || post.author;
+        
+        return `
         <div class="post-card ${post.in_competition ? 'competition-post' : ''}">
             <div class="post-header">
-                <span class="post-theme ${post.theme}">
-                    ${post.theme === 'morning' ? '🌞 صباحي' : '🌙 مسائي'}
-                </span>
-                <span class="post-date">${formatDate(post.date)}</span>
+                <div class="post-author-info">
+                    <img src="${authorAvatar}" alt="${authorName}" class="author-avatar">
+                    <span class="post-author">${authorName}</span>
+                </div>
+                <div class="post-meta">
+                    <span class="post-theme ${post.theme}">
+                        ${post.theme === 'morning' ? '🌞 صباحي' : '🌙 مسائي'}
+                    </span>
+                    <span class="post-date">${formatDate(post.date)}</span>
+                </div>
             </div>
             <h3 class="post-title">${post.title}</h3>
             <p class="post-content">${post.content}</p>
             <div class="post-media">
-                <i class="fas fa-image"></i>
-                <span>صورة الروتين</span>
+                ${post.image_data ? 
+                    `<img src="${post.image_data}" alt="صورة المنشور" class="post-image" onerror="this.style.display='none'">` :
+                    `<div class="no-image">
+                        <i class="fas fa-image"></i>
+                        <span>لا توجد صورة</span>
+                     </div>`
+                }
             </div>
             <div class="post-actions">
                 <button class="vote-btn" onclick="votePost(${post.id})">
                     <i class="fas fa-heart"></i>
                     <span>${post.votes}</span>
                 </button>
-                <span class="post-author">بواسطة ${post.author}</span>
+                <span class="post-stats">${post.votes} إعجاب</span>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // تصفية المنشورات
@@ -238,7 +282,7 @@ function handleFiles(files) {
                 `<img src="${e.target.result}" alt="صورة" class="uploaded-image">` :
                 `<video src="${e.target.result}" controls class="uploaded-video"></video>`;
             
-            preview.innerHTML += mediaElement;
+            preview.innerHTML = mediaElement; // نستخدم = بدل += علشان نعرض صورة واحدة فقط
         };
         reader.readAsDataURL(file);
     });
@@ -254,7 +298,7 @@ function setupProfileImageUpload() {
     document.body.appendChild(profileImageInput);
     
     // تأكد من وجود الزر أولاً
-    setTimeout(() => {
+    const initProfileUpload = () => {
         const editAvatarBtn = document.querySelector('.edit-avatar');
         if (editAvatarBtn) {
             editAvatarBtn.addEventListener('click', function(e) {
@@ -262,44 +306,66 @@ function setupProfileImageUpload() {
                 profileImageInput.click();
             });
         }
-    }, 1000);
+        
+        // أيضاً إضافة إمكانية تغيير الصورة من البروفايل الرئيسي
+        const userAvatar = document.getElementById('userAvatar');
+        if (userAvatar) {
+            userAvatar.style.cursor = 'pointer';
+            userAvatar.addEventListener('click', function() {
+                if (currentUser) {
+                    profileImageInput.click();
+                }
+            });
+        }
+    };
+    
+    // محاولة التهيئة فوراً وبعد تأخير
+    initProfileUpload();
+    setTimeout(initProfileUpload, 1000);
     
     profileImageInput.addEventListener('change', function(e) {
         if (e.target.files && e.target.files[0]) {
             handleProfileImageUpload(e.target.files[0]);
         }
     });
-    
-    // أيضاً إضافة إمكانية تغيير الصورة من البروفايل الرئيسي
-    const userAvatar = document.getElementById('userAvatar');
-    if (userAvatar) {
-        userAvatar.addEventListener('click', function() {
-            if (currentUser) {
-                profileImageInput.click();
-            }
-        });
-    }
 }
 
 // معالجة رفع صورة البروفايل
-function handleProfileImageUpload(file) {
+async function handleProfileImageUpload(file) {
     const reader = new FileReader();
-    reader.onload = function(e) {
-        // تحديث الصورة في كل الأماكن
+    reader.onload = async function(e) {
+        const imageData = e.target.result;
+        
+        // تحديث الصورة في كل الأماكن فوراً
         const profileAvatar = document.getElementById('profileAvatar');
         const userAvatar = document.getElementById('userAvatar');
         
-        if (profileAvatar) profileAvatar.src = e.target.result;
-        if (userAvatar) userAvatar.src = e.target.result;
+        if (profileAvatar) profileAvatar.src = imageData;
+        if (userAvatar) userAvatar.src = imageData;
         
-        // تحديث بيانات المستخدم
+        // تحديث بيانات المستخدم في قاعدة البيانات
         if (currentUser) {
-            currentUser.avatar = e.target.result;
-            // حفظ في localStorage مؤقتاً
-            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            currentUser.avatar = imageData;
+            
+            // حفظ في قاعدة البيانات
+            const { error } = await supabase
+                .from('profiles')
+                .upsert({
+                    id: currentUser.id,
+                    avatar: imageData,
+                    name: currentUser.name,
+                    updated_at: new Date()
+                });
+
+            if (error) {
+                console.error('Error saving profile:', error);
+                alert('❌ حدث خطأ في حفظ الصورة');
+            } else {
+                // حفظ في localStorage مؤقتاً
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                alert('🎉 تم تغيير صورة البروفايل بنجاح!');
+            }
         }
-        
-        alert('🎉 تم تغيير صورة البروفايل بنجاح!');
     };
     
     reader.onerror = function() {
@@ -308,6 +374,43 @@ function handleProfileImageUpload(file) {
     
     reader.readAsDataURL(file);
 }
+
+// تسجيل الدخول
+async function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        alert('خطأ في تسجيل الدخول: ' + error.message);
+    } else {
+        // جلب بيانات البروفايل بعد التسجيل
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', data.user.id)
+            .single();
+
+        const randomAvatar = DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)];
+        
+        currentUser = {
+            id: data.user.id,
+            email: data.user.email,
+            name: profile?.name || data.user.user_metadata?.name || 'مستخدم',
+            avatar: profile?.avatar || data.user.user_metadata?.avatar || randomAvatar
+        };
+        
+        showUserProfile();
+        hideLoginForm();
+        alert('تم تسجيل الدخول بنجاح!');
+    }
+}
+
 // إنشاء حساب
 async function handleRegister(e) {
     e.preventDefault();
@@ -321,13 +424,15 @@ async function handleRegister(e) {
         return;
     }
     
+    const randomAvatar = DEFAULT_AVATARS[Math.floor(Math.random() * DEFAULT_AVATARS.length)];
+    
     const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
         options: {
             data: {
                 name: name,
-                avatar: `https://via.placeholder.com/40/ec4899/ffffff?text=${name.charAt(0)}`
+                avatar: randomAvatar
             }
         }
     });
@@ -335,6 +440,15 @@ async function handleRegister(e) {
     if (error) {
         alert('خطأ في إنشاء الحساب: ' + error.message);
     } else {
+        // إنشاء بروفايل للمستخدم الجديد
+        await supabase
+            .from('profiles')
+            .upsert({
+                id: data.user.id,
+                name: name,
+                avatar: randomAvatar
+            });
+            
         alert('تم إنشاء الحساب بنجاح! يرجى التحقق من بريدك الإلكتروني.');
         hideRegisterForm();
     }
@@ -354,15 +468,25 @@ async function handlePostSubmit(e) {
     const theme = document.querySelector('input[name="theme"]:checked').value;
     const inCompetition = document.getElementById('joinCompetition').checked;
     
+    // الحصول على الصورة المرفوعة إذا وجدت
+    let imageData = null;
+    const mediaPreview = document.getElementById('mediaPreview');
+    const uploadedImage = mediaPreview.querySelector('img');
+    if (uploadedImage) {
+        imageData = uploadedImage.src; // حفظ الصورة كـ base64
+    }
+    
     const newPost = {
         title: title,
         content: content,
         theme: theme,
         author: currentUser.name,
+        author_id: currentUser.id,
         votes: 0,
         date: new Date().toISOString().split('T')[0],
         in_competition: inCompetition,
-        user_id: currentUser.id
+        user_id: currentUser.id,
+        image_data: imageData // حفظ الصورة مع المنشور
     };
     
     // إدراج في قاعدة البيانات
@@ -374,8 +498,8 @@ async function handlePostSubmit(e) {
     if (error) {
         alert('خطأ في نشر المنشور: ' + error.message);
     } else {
-        posts.unshift(data[0]);
-        renderPosts();
+        // إعادة تحميل المنشورات من الداتابيس للتأكد من العرض الصحيح
+        await loadPosts();
         hidePostForm();
         
         // إعادة تعيين النموذج
@@ -434,9 +558,24 @@ function toggleUserMenu() {
     document.getElementById('userMenu').classList.toggle('show');
 }
 
-function showMyPosts() {
-    alert('سيتم عرض منشوراتك هنا!');
+async function showMyPosts() {
+    if (!currentUser) return;
+    
+    // تصفية لعرض منشورات المستخدم فقط
+    const userPosts = posts.filter(post => post.user_id === currentUser.id);
+    const tempPosts = posts;
+    posts = userPosts;
+    currentFilter = 'all';
+    renderPosts();
+    
+    alert('يتم عرض منشوراتك فقط');
     document.getElementById('userMenu').classList.remove('show');
+    
+    // إعادة المنشورات بعد 5 ثواني
+    setTimeout(() => {
+        posts = tempPosts;
+        renderPosts();
+    }, 5000);
 }
 
 async function logout() {
@@ -452,7 +591,7 @@ function editProfile() {
 }
 
 function changeAvatar() {
-    alert('سيتم فتح خيارات تغيير الصورة!');
+    document.getElementById('profileImageInput').click();
 }
 
 // دوال مساعدة
@@ -470,4 +609,14 @@ window.addEventListener('click', function(e) {
     if (e.target === postModal) hidePostForm();
     if (e.target === loginModal) hideLoginForm();
     if (e.target === registerModal) hideRegisterForm();
+});
+
+// منع إغلاق القائمة عند النقر داخلها
+document.addEventListener('click', function(e) {
+    const userMenu = document.getElementById('userMenu');
+    const userProfile = document.getElementById('userProfile');
+    
+    if (userMenu.classList.contains('show') && !userProfile.contains(e.target)) {
+        userMenu.classList.remove('show');
+    }
 });
