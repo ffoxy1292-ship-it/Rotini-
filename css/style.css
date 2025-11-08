@@ -957,3 +957,103 @@ body {
         flex-wrap: wrap;
     }
                            }
+/* ===== إصلاحات الصور والبروفايل ===== */
+
+/* تحسين مظهر الصور المرفوعة */
+.uploaded-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 10px 0;
+    border: 2px solid #f3f4f6;
+}
+
+.uploaded-video {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+    margin: 10px 0;
+    border: 2px solid #f3f4f6;
+}
+
+/* جعل صورة البروفايل قابلة للنقر */
+.user-avatar img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #ec4899;
+}
+
+.user-avatar img:hover {
+    transform: scale(1.05);
+}
+
+/* تحسين زر تعديل البروفايل */
+.edit-avatar {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #ec4899;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.edit-avatar:hover {
+    background: #db2777;
+    transform: scale(1.1);
+}
+
+.profile-avatar {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* تحسين معاينة الوسائط */
+.media-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.media-preview img,
+.media-preview video {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+/* جعل زر البروفايل في الهيدر قابل للنقر */
+.user-profile {
+    cursor: pointer;
+}
+
+.user-avatar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.user-avatar:hover {
+    background: #fdf2f8;
+}
