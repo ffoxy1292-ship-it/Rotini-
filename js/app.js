@@ -455,6 +455,7 @@ async function handleRegister(e) {
 }
 
 // نشر منشور
+// نشر منشور - الإصدار المصحح
 async function handlePostSubmit(e) {
     e.preventDefault();
     
@@ -465,29 +466,40 @@ async function handlePostSubmit(e) {
     
     const title = document.getElementById('postTitle').value;
     const content = document.getElementById('postContent').value;
-    const theme = document.querySelector('input[name="theme"]:checked').value;
+    const themeElement = document.querySelector('input[name="theme"]:checked');
+    
+    if (!title || !content || !themeElement) {
+        alert('يرجى ملء جميع الحقول');
+        return;
+    }
+    
+    const theme = themeElement.value;
     const inCompetition = document.getElementById('joinCompetition').checked;
     
     // الحصول على الصورة المرفوعة إذا وجدت
     let imageData = null;
     const mediaPreview = document.getElementById('mediaPreview');
-    const uploadedImage = mediaPreview.querySelector('img');
-    if (uploadedImage) {
-        imageData = uploadedImage.src; // حفظ الصورة كـ base64
+    if (mediaPreview) {
+        const uploadedImage = mediaPreview.querySelector('img');
+        if (uploadedImage) {
+            imageData = uploadedImage.src;
+        }
     }
     
+    // استخدمي هذا الكود المبسط بدون author_id
     const newPost = {
         title: title,
         content: content,
         theme: theme,
         author: currentUser.name,
-        author_id: currentUser.id,
         votes: 0,
         date: new Date().toISOString().split('T')[0],
         in_competition: inCompetition,
         user_id: currentUser.id,
-        image_data: imageData // حفظ الصورة مع المنشور
+        image_data: imageData
     };
+    
+    console.log('جاري نشر المنشور:', newPost);
     
     // إدراج في قاعدة البيانات
     const { data, error } = await supabase
@@ -496,18 +508,22 @@ async function handlePostSubmit(e) {
         .select();
 
     if (error) {
+        console.error('Error publishing post:', error);
         alert('خطأ في نشر المنشور: ' + error.message);
     } else {
-        // إعادة تحميل المنشورات من الداتابيس للتأكد من العرض الصحيح
+        console.log('تم نشر المنشور:', data);
+        
+        // إعادة تحميل المنشورات من الداتابيس
         await loadPosts();
         hidePostForm();
         
         // إعادة تعيين النموذج
         document.getElementById('postForm').reset();
-        document.getElementById('mediaPreview').innerHTML = '';
+        if (mediaPreview) mediaPreview.innerHTML = '';
         
         alert('تم نشر المنشور بنجاح!');
     }
+}
 }
 
 // دوال إظهار/إخفاء النماذج
