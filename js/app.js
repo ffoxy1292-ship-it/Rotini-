@@ -189,7 +189,7 @@ async function votePost(postId) {
 
 // إعداد المستمعين للأحداث
 function setupEventListeners() {
-    // رفع الملفات
+    // رفع الملفات للمنشورات
     const uploadArea = document.getElementById('uploadArea');
     const mediaFiles = document.getElementById('mediaFiles');
     
@@ -217,13 +217,16 @@ function setupEventListeners() {
         handleFiles(e.target.files);
     });
     
+    // إعداد رفع صورة البروفايل
+    setupProfileImageUpload();
+    
     // نماذج التسجيل
     document.getElementById('loginForm').addEventListener('submit', handleLogin);
     document.getElementById('registerForm').addEventListener('submit', handleRegister);
     document.getElementById('postForm').addEventListener('submit', handlePostSubmit);
 }
 
-// معالجة رفع الملفات
+// معالجة رفع الملفات للمنشورات
 function handleFiles(files) {
     const preview = document.getElementById('mediaPreview');
     preview.innerHTML = '';
@@ -232,8 +235,8 @@ function handleFiles(files) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const mediaElement = file.type.startsWith('image/') ? 
-                `<img src="${e.target.result}" alt="صورة">` :
-                `<video src="${e.target.result}" controls></video>`;
+                `<img src="${e.target.result}" alt="صورة" class="uploaded-image">` :
+                `<video src="${e.target.result}" controls class="uploaded-video"></video>`;
             
             preview.innerHTML += mediaElement;
         };
@@ -241,32 +244,70 @@ function handleFiles(files) {
     });
 }
 
-// تسجيل الدخول
-async function handleLogin(e) {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
+// إصلاح رفع صورة البروفايل
+function setupProfileImageUpload() {
+    const profileImageInput = document.createElement('input');
+    profileImageInput.type = 'file';
+    profileImageInput.accept = 'image/*';
+    profileImageInput.style.display = 'none';
+    profileImageInput.id = 'profileImageInput';
+    document.body.appendChild(profileImageInput);
     
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password
+    // تأكد من وجود الزر أولاً
+    setTimeout(() => {
+        const editAvatarBtn = document.querySelector('.edit-avatar');
+        if (editAvatarBtn) {
+            editAvatarBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                profileImageInput.click();
+            });
+        }
+    }, 1000);
+    
+    profileImageInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            handleProfileImageUpload(e.target.files[0]);
+        }
     });
-
-    if (error) {
-        alert('خطأ في تسجيل الدخول: ' + error.message);
-    } else {
-        currentUser = {
-            id: data.user.id,
-            email: data.user.email,
-            name: data.user.user_metadata?.name || 'مستخدم',
-            avatar: data.user.user_metadata?.avatar || 'https://via.placeholder.com/40/ec4899/ffffff?text=U'
-        };
-        showUserProfile();
-        hideLoginForm();
-        alert('تم تسجيل الدخول بنجاح!');
+    
+    // أيضاً إضافة إمكانية تغيير الصورة من البروفايل الرئيسي
+    const userAvatar = document.getElementById('userAvatar');
+    if (userAvatar) {
+        userAvatar.addEventListener('click', function() {
+            if (currentUser) {
+                profileImageInput.click();
+            }
+        });
     }
 }
 
+// معالجة رفع صورة البروفايل
+function handleProfileImageUpload(file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // تحديث الصورة في كل الأماكن
+        const profileAvatar = document.getElementById('profileAvatar');
+        const userAvatar = document.getElementById('userAvatar');
+        
+        if (profileAvatar) profileAvatar.src = e.target.result;
+        if (userAvatar) userAvatar.src = e.target.result;
+        
+        // تحديث بيانات المستخدم
+        if (currentUser) {
+            currentUser.avatar = e.target.result;
+            // حفظ في localStorage مؤقتاً
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
+        
+        alert('🎉 تم تغيير صورة البروفايل بنجاح!');
+    };
+    
+    reader.onerror = function() {
+        alert('❌ حدث خطأ في تحميل الصورة. حاولي مرة أخرى.');
+    };
+    
+    reader.readAsDataURL(file);
+}
 // إنشاء حساب
 async function handleRegister(e) {
     e.preventDefault();
