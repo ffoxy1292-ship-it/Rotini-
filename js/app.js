@@ -524,7 +524,7 @@ async function handlePostSubmit(e) {
         alert('تم نشر المنشور بنجاح!');
     }
 }
-}
+
 
 // دوال إظهار/إخفاء النماذج
 function showPostForm() {
