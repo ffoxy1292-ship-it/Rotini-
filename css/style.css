@@ -18,61 +18,17 @@ body {
     padding: 0 20px;
 }
 
-/* هيدر طبيعي أكثر، أقل AI */
+/* الهيدر */
 .app-header {
-    background: rgba(255, 255, 255, 0.92); /* أقل شفافية، طبيعي */
-    backdrop-filter: blur(14px); /* blur أقل قليلاً، يعطي إحساس يدوي */
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08), 0 4px 15px rgba(0,0,0,0.05); /* ظل متعدد الطبقات يعطي لمسة بشرية */
-    border-bottom: 1px solid rgba(255,255,255,0.6); /* أقل مثالية */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08), 0 4px 15px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.6);
 }
-
-/* زر رئيسي طبيعي أكثر */
-.btn-primary {
-    background: linear-gradient(135deg, #f472b6, #d946ef); /* وردي-بنفسجي أقل صراحة */
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-/* تأثير hover للزر بإحساس يدوي */
-.btn-primary:hover {
-    transform: translateY(-2px) rotate(-0.5deg); /* إضافة دوران طفيف، طبيعي */
-    box-shadow: 0 8px 20px rgba(244, 114, 182, 0.2), 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* زر ثانوي */
-.btn-secondary {
-    background: white;
-    color: #6b7280;
-    border: 2px solid #e5e7eb;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-/* تأثير hover طبيعي */
-.btn-secondary:hover {
-    background: #fef2f6; /* لون خلفية خفيف وردي */
-    border-color: #fcd5e0; /* لون أقل مثالية */
-}
-
-/* اللوجو والـ halo (محافظ على الشكل الأصلي مع لمسة طبيعية) */
 
 .nav {
     display: flex;
@@ -89,7 +45,6 @@ body {
     gap: 12px;
 }
 
-/* كود اللوغو الجديد - سيدة اليوجا من التصميم الثاني */
 .logo-icon {
     width: 50px;
     height: 50px;
@@ -192,6 +147,7 @@ body {
     opacity: 0.4;
     animation: pulse 3s ease-in-out infinite alternate;
 }
+
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.3; }
     50% { transform: scale(1.1); opacity: 0.6; }
@@ -295,6 +251,7 @@ body {
     height: 40px;
     border-radius: 50%;
     border: 2px solid #ec4899;
+    object-fit: cover;
 }
 
 .user-menu {
@@ -344,6 +301,7 @@ body {
     padding: 2rem;
     border: 1px solid rgba(255, 228, 238, 0.2);
 }
+
 .competition-header {
     display: flex;
     justify-content: space-between;
@@ -395,6 +353,7 @@ body {
     height: 40px;
     border-radius: 50%;
     border: 2px solid white;
+    object-fit: cover;
 }
 
 .leader .votes {
@@ -465,6 +424,20 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+}
+
+.post-author-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ec4899;
+    object-fit: cover;
 }
 
 .post-theme {
@@ -844,6 +817,7 @@ body {
     height: 100px;
     border-radius: 50%;
     border: 4px solid #ec4899;
+    object-fit: cover;
 }
 
 .edit-avatar {
@@ -852,14 +826,21 @@ body {
     right: 5px;
     background: #ec4899;
     color: white;
-    border: none;
+    border: 2px solid white;
+    border-radius: 50%;
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.edit-avatar:hover {
+    background: #db2777;
+    transform: scale(1.1);
 }
 
 .profile-info {
@@ -914,6 +895,31 @@ body {
     text-align: center;
 }
 
+.uploaded-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 10px 0;
+    border: 2px solid #f3f4f6;
+}
+
+.uploaded-video {
+    width: 100%;
+    max-height: 300px;
+    border-radius: 12px;
+    margin: 10px 0;
+    border: 2px solid #f3f4f6;
+}
+
+.no-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #9ca3af;
+}
+
 @media (max-width: 768px) {
     .nav {
         flex-direction: column;
@@ -956,104 +962,4 @@ body {
     .filter-tabs {
         flex-wrap: wrap;
     }
-                           }
-/* ===== إصلاحات الصور والبروفايل ===== */
-
-/* تحسين مظهر الصور المرفوعة */
-.uploaded-image {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin: 10px 0;
-    border: 2px solid #f3f4f6;
-}
-
-.uploaded-video {
-    width: 100%;
-    max-height: 300px;
-    border-radius: 12px;
-    margin: 10px 0;
-    border: 2px solid #f3f4f6;
-}
-
-/* جعل صورة البروفايل قابلة للنقر */
-.user-avatar img {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border: 2px solid #ec4899;
-}
-
-.user-avatar img:hover {
-    transform: scale(1.05);
-}
-
-/* تحسين زر تعديل البروفايل */
-.edit-avatar {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background: #ec4899;
-    color: white;
-    border: 2px solid white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.edit-avatar:hover {
-    background: #db2777;
-    transform: scale(1.1);
-}
-
-.profile-avatar {
-    position: relative;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-}
-
-.profile-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* تحسين معاينة الوسائط */
-.media-preview {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.media-preview img,
-.media-preview video {
-    max-width: 150px;
-    border-radius: 8px;
-}
-
-/* جعل زر البروفايل في الهيدر قابل للنقر */
-.user-profile {
-    cursor: pointer;
-}
-
-.user-avatar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    transition: background 0.3s ease;
-}
-
-.user-avatar:hover {
-    background: #fdf2f8;
-}
+    }
